@@ -20,7 +20,15 @@ public class UserService {
     public boolean isUserExists(String userid) {
         return userMapper.countUserById(userid) > 0;
     }
+    
+    public UserVO getUserById(String userid) {
+        return userMapper.getUser(userid);
+    }
 
+    public boolean passwordMatches(String rawPassword, String encodedPassword) {
+        return passwordEncoder.matches(rawPassword, encodedPassword);
+    }
+    
     @Transactional // 트랜잭션 관리
     public void registerUser(UserVO userVO) {
         // 비밀번호 암호화

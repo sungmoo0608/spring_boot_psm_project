@@ -32,6 +32,7 @@
    
    <h3>
        [<a href="<c:url value="/join" />">회원가입</a>]
+       [<a href="<c:url value="/deleteUser" />">회원탈퇴</a>]
        [<a href="<c:url value="/logout" />">로그아웃</a>]
        [<a href="<c:url value="/user/userHome" />">유저 홈</a>]
        [<a href="<c:url value="/admin/adminHome" />">관리자 홈</a>]

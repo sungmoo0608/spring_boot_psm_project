@@ -16,7 +16,7 @@ public class HomeController {
 		
 		log.info("login()..");
 
-		return "home";
+		return "redirect:/user_main.html"; 
 	}
 	
 }
