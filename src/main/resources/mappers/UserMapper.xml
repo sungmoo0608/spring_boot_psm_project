@@ -9,10 +9,9 @@
 	</resultMap>
 	
 	<resultMap id="userMap" type="UserVO">
-		<result property="userno" column="userno"/>
-		<result property="usernick" column="usernick"/>
 		<result property="userid" column="userid"/>
 		<result property="password" column="password"/>
+		<result property="uname" column="uname"/>
 		<result property="utel" column="utel"/>
 		<result property="uadd" column="uadd"/>
 		<result property="uemail" column="uemail"/>
