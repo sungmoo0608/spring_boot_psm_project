@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import edu.ict.ex.vo.UserVO;
 
@@ -21,6 +22,9 @@ public interface UserMapper  {
     
     @Select("SELECT COUNT(*) FROM users WHERE uemail = #{uemail}")
     int countUserByEmail(String uemail);
+    
+	@Update("update into users(userid, password, uname, utel, uadd, uemail) VALUES ( #{userid}, #{password}, #{uname}, #{utel}, #{uadd}, #{uemail} )")
+	int modifyUser(UserVO userVO);
 	
 	@Insert("insert into users(userid, password, uname, utel, uadd, uemail) VALUES ( #{userid}, #{password}, #{uname}, #{utel}, #{uadd}, #{uemail} )")
 	int insertUser(UserVO userVO);

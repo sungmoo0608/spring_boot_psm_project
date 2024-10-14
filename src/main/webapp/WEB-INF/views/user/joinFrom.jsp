@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> 
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,8 +59,19 @@
 					</div>
 				</div>
 				<div class="col-sm-12 col-lg-4 text-end">
-					<span> <a href="login.html" class="login">로그인 </a></span> <span>
-						|</span> <span><a href="add.html" class="login">회원가입</a> </span>
+				<span>  </span>
+					<!-- 로그인이 안된 사람 -->
+						<sec:authorize access="isAnonymous()">
+					         <p><a href="<c:url value="/login" />">로그인</a></p>
+						</sec:authorize>
+					   
+						<!-- 로그인이 완료된 사람 -->
+						<sec:authorize access="isAuthenticated()">
+							<span><sec:authentication property="principal.username"/>님 환영합니다.</span>
+						</sec:authorize>
+					
+						<span>|</span> 
+						<span><a href="<c:url value="/join" />" class="login">회원가입</a> </span>
 				</div>
 			</div>
 		</div>
@@ -231,9 +245,9 @@
                     data: { userid: userid },
                     success: function (response) {
                         if (response.exists) {
-                            $("#useridMessage").text("이미 존재하는 사용자입니다.").css("color", "red");
+                            $("#useridMessage").text("이미 존재하는 ID입니다.").css("color", "red");
                         } else {
-                            $("#useridMessage").text("사용 가능한 아이디입니다.").css("color", "green");
+                            $("#useridMessage").text("사용 가능한 ID입니다.").css("color", "green");
                         }
                     },
                     error: function () {

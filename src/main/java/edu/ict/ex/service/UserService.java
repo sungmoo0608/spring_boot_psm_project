@@ -22,11 +22,11 @@ public class UserService {
     }
     
     public boolean isUserPhoneExists(String utel) {
-        return userMapper.countUserByPhone(utel) > 0; // 수정
+        return userMapper.countUserByPhone(utel) > 0; 
     }
 
     public boolean isUserEmailExists(String uemail) {
-        return userMapper.countUserByEmail(uemail) > 0; // 수정
+        return userMapper.countUserByEmail(uemail) > 0;
     }
     
     public UserVO getUserById(String userid) {
@@ -36,6 +36,8 @@ public class UserService {
     public boolean passwordMatches(String rawPassword, String encodedPassword) {
         return passwordEncoder.matches(rawPassword, encodedPassword);
     }
+    
+    int modify(UserVO userVO);
     
     @Transactional // 트랜잭션 관리
     public void registerUser(UserVO userVO) {

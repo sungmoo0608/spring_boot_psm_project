@@ -4,23 +4,32 @@ import java.security.Principal;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.ict.ex.service.UserService;
+import edu.ict.ex.vo.BoardVO;
 import edu.ict.ex.vo.UserVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
 
-public class JoinController {
+public class UserController {
 	
     @Autowired
     private UserService userService; // UserService 주입
@@ -133,31 +142,67 @@ public class JoinController {
     
     // 회원 탈퇴 요청 처리
     @PostMapping("/deleteUser")
-    public String deleteUser(@RequestParam String userid, @RequestParam String password, Model model) {
+    public String deleteUser(@RequestParam String userid, @RequestParam String password, HttpServletRequest request, HttpServletResponse response, Model model) {
         log.info("deleteUser()..");
 
         // 사용자 정보 확인
         UserVO user = userService.getUserById(userid);
         if (user == null) {
             model.addAttribute("error", "사용자 ID가 존재하지 않습니다.");
+            model.addAttribute("userid", userid); // 입력된 ID를 모델에 추가
+            
             return "user/deleteForm";
         }
 
         // 비밀번호 확인
         if (!userService.passwordMatches(password, user.getPassword())) {
             model.addAttribute("error", "비밀번호가 일치하지 않습니다.");
+            model.addAttribute("userid", userid); // 입력된 ID를 모델에 추가
             return "user/deleteForm";
         }
 
         // 사용자 탈퇴 처리
         try {
             userService.deleteUser(userid); // 사용자 및 권한 삭제
+            
+            // 로그아웃 처리
+            SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
+            logoutHandler.logout(request, response, null);
+            
             return "redirect:/"; // 탈퇴 후 리다이렉트
+            
         } catch (Exception e) {
             log.error("Error deleting user: ", e);
             model.addAttribute("error", "탈퇴 중 오류가 발생했습니다.");
             return "user/deleteForm";
         }
     }
+    
+    // 회원정보 수정
+    @GetMapping("/modify")
+    public String modify(Model model) {
+        log.info("modify()..");
+        return "user/modifyForm"; // 회원가입 뷰 이름
+    }
+    
+	@PutMapping("/")	// 경로 변수
+	public ResponseEntity<String> modify(@RequestBody UserVO user){
+		
+		log.info("modify..");
+		log.info("board" + user);
+		
+		ResponseEntity<String> entity = null;
+		
+		try {
+			int rn = UserService.modify(user);
+			entity = new ResponseEntity<String>(String.valueOf(rn),HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;
+	}
+	
     
 }
