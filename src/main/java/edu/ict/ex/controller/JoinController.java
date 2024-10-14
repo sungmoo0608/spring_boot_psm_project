@@ -32,7 +32,7 @@ public class JoinController {
     @GetMapping("/join")
     public String join(Model model) {
         log.info("join()..");
-        return "user/addForm"; // 회원가입 뷰 이름
+        return "user/joinFrom"; // 회원가입 뷰 이름
     }
     
     // 중복 체크 버튼
@@ -44,30 +44,66 @@ public class JoinController {
         response.put("exists", exists);
         return response;
     }
+    
+    @GetMapping("/checkUserPhone")
+    @ResponseBody
+    public Map<String, Boolean> checkUserPhone(@RequestParam String utel) {
+        boolean exists = userService.isUserPhoneExists(utel);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("exists", exists);
+        return response;
+    }
+    
+    @GetMapping("/checkUserEmail")
+    @ResponseBody
+    public Map<String, Boolean> checkUserEmail(@RequestParam String uemail) {
+        boolean exists = userService.isUserEmailExists(uemail);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("exists", exists);
+        return response;
+    }
 
+    
     // 회원가입 요청 처리
     @PostMapping("/insertUser")
     public String insertUser(UserVO userVO, Model model) {
         log.info("insertUser()..");
 
         // Validate user input
-        if (userVO.getUsername() == null || userVO.getUsername().isEmpty()) {
+        if (userVO.getUname() == null || userVO.getUname().isEmpty()) {
             model.addAttribute("error", "사용자 이름은 필수입니다.");
-            return "user/addForm";
+            return "user/join";
         }
+        
         if (userVO.getPassword() == null || userVO.getPassword().length() < 6) {
             model.addAttribute("error", "비밀번호는 최소 6자 이상이어야 합니다.");
-            return "user/addForm";
+            return "user/join";
         }
+        
         if (userVO.getUemail() == null || !userVO.getUemail().matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
             model.addAttribute("error", "유효한 이메일을 입력하세요.");
-            return "user/addForm";
+            return "user/join";
+        }
+        
+        if (userVO.getUtel() == null || userVO.getUtel().isEmpty()) {
+            model.addAttribute("error", "휴대폰 번호는 필수입니다.");
+            return "user/join";
         }
 
         // Duplicate check
         if (userService.isUserExists(userVO.getUserid())) {
-            model.addAttribute("error", "이미 존재하는 사용자입니다.");
-            return "user/addForm";
+            model.addAttribute("error", "이미 존재하는 ID입니다.");
+            return "user/join";
+        }
+        
+        if (userService.isUserPhoneExists(userVO.getUtel())) {
+            model.addAttribute("error", "이미 존재하는 휴대폰 번호입니다.");
+            return "user/join";
+        }
+        
+        if (userService.isUserEmailExists(userVO.getUemail())) {
+            model.addAttribute("error", "이미 존재하는 이메일입니다.");
+            return "user/join";
         }
 
         try {
@@ -75,13 +111,15 @@ public class JoinController {
             return "redirect:/";
         } catch (Exception e) {
             log.error("Error registering user: ", e);
-            return "redirect:/join";
+            model.addAttribute("error", "회원가입 중 오류가 발생했습니다.");
+            return "user/join";
         }
     }
     
     @GetMapping("/deleteUser")
     public String deleteUserPage(Principal principal, Model model) {
         log.info("deleteUserPage()..");
+        
         if (principal != null) {
             String userid = principal.getName(); // 로그인된 사용자 ID
             model.addAttribute("userid", userid); // 모델에 추가

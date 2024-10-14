@@ -12,11 +12,11 @@ import lombok.extern.slf4j.Slf4j;
 public class HomeController {
 
 	@GetMapping("/")
-	public String login(Model model) {
+	public String home(Model model) {
 		
-		log.info("login()..");
+		log.info("home()..");
 
-		return "redirect:/user_main.html"; 
+		return "index"; 
 	}
 	
 }
