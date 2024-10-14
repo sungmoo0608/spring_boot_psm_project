@@ -15,8 +15,14 @@ public interface UserMapper  {
 	
     @Select("SELECT COUNT(*) FROM users WHERE userid = #{userid}")
     int countUserById(String userid);
+    
+    @Select("SELECT COUNT(*) FROM users WHERE utel = #{utel}")
+    int countUserByPhone(String utel);
+    
+    @Select("SELECT COUNT(*) FROM users WHERE uemail = #{uemail}")
+    int countUserByEmail(String uemail);
 	
-	@Insert("insert into users(username, userid, password, utel, uadd, uemail) VALUES ( #{username}, #{userid}, #{password}, #{utel}, #{uadd}, #{uemail} )")
+	@Insert("insert into users(userid, password, uname, utel, uadd, uemail) VALUES ( #{userid}, #{password}, #{uname}, #{utel}, #{uadd}, #{uemail} )")
 	int insertUser(UserVO userVO);
 	   
 	@Insert("insert into authorities(userid,authority) values(#{userid},'ROLE_USER')")

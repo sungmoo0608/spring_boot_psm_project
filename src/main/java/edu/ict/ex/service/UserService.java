@@ -21,6 +21,14 @@ public class UserService {
         return userMapper.countUserById(userid) > 0;
     }
     
+    public boolean isUserPhoneExists(String utel) {
+        return userMapper.countUserByPhone(utel) > 0; // 수정
+    }
+
+    public boolean isUserEmailExists(String uemail) {
+        return userMapper.countUserByEmail(uemail) > 0; // 수정
+    }
+    
     public UserVO getUserById(String userid) {
         return userMapper.getUser(userid);
     }

@@ -31,12 +31,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
-		auth.inMemoryAuthentication()
-		.withUser("user").password(passwordEncoder().encode("user")).roles("USER").and()
-		.withUser("member").password(passwordEncoder().encode("member")).roles("MANAGER").and()
-        .withUser("admin").password(passwordEncoder().encode("admin")).roles("ADMIN");
-		
-		
 		auth.userDetailsService(customUserDetailsService)
 			.passwordEncoder(passwordEncoder());
 		
@@ -57,9 +51,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		//로그인 폼 커스텀 마이징
         http.formLogin()
         	.loginPage("/login")  //loginPage() 는 말그대로 로그인할 페이지 url 이고
-            .usernameParameter("id")
-            .passwordParameter("pw")
-            .defaultSuccessUrl("/")
+            .usernameParameter("userid")
+            .passwordParameter("password")
+            .failureUrl("/login?error=true") // 로그인 실패 시 에러 페이지
+            .defaultSuccessUrl("/") // 로그인 후 loginInfo로 리디렉션
             .and()
             .oauth2Login()
             .loginPage("/login")

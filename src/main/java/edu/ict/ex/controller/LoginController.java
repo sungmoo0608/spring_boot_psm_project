@@ -45,14 +45,10 @@ public class LoginController {
         if (authentication != null) {
             log.info("Authenticated user: " + authentication.getName());
             log.info("Authorities: " + authentication.getAuthorities());
-        }
-		
-		//0. OAuth2User에서 username을 가져오는 코드
-        if (authentication instanceof OAuth2AuthenticationToken) {
-            OAuth2AuthenticationToken oauthToken = (OAuth2AuthenticationToken) authentication;
-            OAuth2User oauthUser = oauthToken.getPrincipal();
-            String username = oauthUser.getAttribute("login"); // 예시로 'login' 속성을 사용
-            log.info("OAuth2 Username: " + username);
+            
+            // 로그인 성공 시 세션에 사용자 정보 저장
+            httpSession.setAttribute("userid", authentication.getName());
+            httpSession.setAttribute("authorities", authentication.getAuthorities());
         }
 		
 		//3.SpringContextHolder를 통하여 가져오는 방법(일반적인 빈에서 사용할 수 있음)

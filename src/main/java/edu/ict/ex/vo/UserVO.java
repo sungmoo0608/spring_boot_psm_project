@@ -10,9 +10,10 @@ import lombok.ToString;
 
 /* 이름       널?       유형            
 -------- -------- ------------- 
-USERNAME NOT NULL VARCHAR2(50)  
+  
 USERID   NOT NULL VARCHAR2(50)  
 PASSWORD NOT NULL VARCHAR2(100) 
+UNAME    NOT NULL VARCHAR2(50)
 UTEL     NOT NULL VARCHAR2(100) 
 UADD     NOT NULL VARCHAR2(100) 
 UEMAIL   NOT NULL VARCHAR2(100) 
@@ -26,9 +27,9 @@ ENABLED           CHAR(1)            	*/
 
 public class UserVO  {
 	
-	private String username;
 	private String userid;
 	private String password;
+	private String uname;
 	private String utel;
 	private String uadd;
 	private String uemail;

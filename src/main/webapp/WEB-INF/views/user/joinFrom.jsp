@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -165,7 +168,9 @@
                 </div>
                 <div class="mb-3">
                     <label for="utel" class="form-label">휴대폰 번호</label>
-                    <input type="text" name="utel" class="form-control" placeholder="휴대폰 번호를 입력하세요." required />
+                    <input type="text" name="utel" id="utel" class="form-control" placeholder="휴대폰 번호를 입력하세요." required />
+                    <button type="button" onclick="checkDuplicatePhone()" class="btn btn-outline-secondary mt-2">중복 체크</button>
+                    <span id="utelMessage"></span>
                     <div class="invalid-feedback">유효한 휴대폰 번호를 입력해주세요.</div>
                 </div>
                 <div class="mb-3">
@@ -175,7 +180,9 @@
                 </div>
                 <div class="mb-3">
                     <label for="uemail" class="form-label">이메일</label>
-                    <input type="email" name="uemail" class="form-control" placeholder="이메일을 입력하세요." required />
+                    <input type="email" name="uemail" id="uemail" class="form-control" placeholder="이메일을 입력하세요." required />
+                    <button type="button" onclick="checkDuplicateEmail()" class="btn btn-outline-secondary mt-2">중복 체크</button>
+                    <span id="uemailMessage"></span>
                     <div class="invalid-feedback">유효한 이메일 주소를 입력해주세요.</div>
                 </div>
                 <div class="d-grid gap-2">
@@ -237,6 +244,53 @@
                 $("#useridMessage").text("아이디를 입력하세요.").css("color", "red");
             }
         }
+        
+        function checkDuplicatePhone() {
+            var utel = $("#utel").val();
+            if (utel) {
+                $.ajax({
+                    url: "/checkUserPhone",
+                    type: "GET",
+                    data: { utel: utel },
+                    success: function (response) {
+                        if (response.exists) {
+                            $("#utelMessage").text("이미 존재하는 휴대폰 번호입니다.").css("color", "red");
+                        } else {
+                            $("#utelMessage").text("사용 가능한 휴대폰 번호입니다.").css("color", "green");
+                        }
+                    },
+                    error: function () {
+                        $("#errorMessage").text("중복 체크 중 오류가 발생했습니다.");
+                    }
+                });
+            } else {
+                $("#utelMessage").text("휴대폰 번호를 입력하세요.").css("color", "red");
+            }
+        }
+
+        function checkDuplicateEmail() {
+            var uemail = $("#uemail").val();
+            if (uemail) {
+                $.ajax({
+                    url: "/checkUserEmail",
+                    type: "GET",
+                    data: { uemail: uemail },
+                    success: function (response) {
+                        if (response.exists) {
+                            $("#uemailMessage").text("이미 존재하는 이메일입니다.").css("color", "red");
+                        } else {
+                            $("#uemailMessage").text("사용 가능한 이메일입니다.").css("color", "green");
+                        }
+                    },
+                    error: function () {
+                        $("#errorMessage").text("중복 체크 중 오류가 발생했습니다.");
+                    }
+                });
+            } else {
+                $("#uemailMessage").text("이메일을 입력하세요.").css("color", "red");
+            }
+        }
+        
         
     </script>
 
