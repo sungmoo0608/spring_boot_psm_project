@@ -45,9 +45,9 @@ class UserMapperTest {
 	void testInsertUser() {
 		
 		UserVO user = new UserVO();
-		user.setUsername("abc");
 		user.setUserid("abc");
 		user.setPassword(passwordEncoder.encode("abc"));
+		user.setUname("abc");
 		user.setUtel("010-1111-4444");
 		user.setUadd("서울시 성동구 아차산로 117");
 		user.setUemail("admin2@ict.com");

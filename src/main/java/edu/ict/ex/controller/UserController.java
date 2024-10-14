@@ -185,11 +185,11 @@ public class UserController {
         return "user/modifyForm"; // 회원가입 뷰 이름
     }
     
-	@PutMapping("/")	// 경로 변수
+	@PutMapping("/modify")	// 경로 변수
 	public ResponseEntity<String> modify(@RequestBody UserVO user){
 		
 		log.info("modify..");
-		log.info("board" + user);
+		log.info("user" + user);
 		
 		ResponseEntity<String> entity = null;
 		

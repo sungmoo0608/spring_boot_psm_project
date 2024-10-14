@@ -37,7 +37,14 @@ public class UserService {
         return passwordEncoder.matches(rawPassword, encodedPassword);
     }
     
-    int modify(UserVO userVO);
+    @Transactional
+    public int modify(UserVO userVO) {
+        // 수정하기 전에 사용자가 존재하는지 확인
+        if (!isUserExists(userVO.getUserid())) {
+            throw new IllegalArgumentException("사용자가 존재하지 않습니다.");
+        }
+        return userMapper.modifyUser(userVO); // UserMapper에 업데이트 메서드가 있다고 가정
+    }
     
     @Transactional // 트랜잭션 관리
     public void registerUser(UserVO userVO) {
