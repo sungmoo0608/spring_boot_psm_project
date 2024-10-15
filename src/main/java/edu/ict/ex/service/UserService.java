@@ -37,7 +37,9 @@ public class UserService {
         return passwordEncoder.matches(rawPassword, encodedPassword);
     }
     
-    int modify(UserVO userVO);
+    public int modify(UserVO userVO){
+        return userMapper.modifyUser(userVO);
+    }
     
     @Transactional // 트랜잭션 관리
     public void registerUser(UserVO userVO) {

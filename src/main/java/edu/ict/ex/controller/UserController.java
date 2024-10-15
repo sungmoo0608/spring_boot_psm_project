@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.ict.ex.service.UserService;
-import edu.ict.ex.vo.BoardVO;
 import edu.ict.ex.vo.UserVO;
 import lombok.extern.slf4j.Slf4j;
 
@@ -41,7 +40,7 @@ public class UserController {
     @GetMapping("/join")
     public String join(Model model) {
         log.info("join()..");
-        return "user/joinFrom"; // 회원가입 뷰 이름
+        return "user/joinForm"; // 회원가입 뷰 이름
     }
     
     // 중복 체크 버튼
@@ -81,38 +80,38 @@ public class UserController {
         // Validate user input
         if (userVO.getUname() == null || userVO.getUname().isEmpty()) {
             model.addAttribute("error", "사용자 이름은 필수입니다.");
-            return "user/join";
+            return "user/joinForm";
         }
         
         if (userVO.getPassword() == null || userVO.getPassword().length() < 6) {
             model.addAttribute("error", "비밀번호는 최소 6자 이상이어야 합니다.");
-            return "user/join";
+            return "user/joinForm";
         }
         
         if (userVO.getUemail() == null || !userVO.getUemail().matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
             model.addAttribute("error", "유효한 이메일을 입력하세요.");
-            return "user/join";
+            return "user/joinForm";
         }
         
         if (userVO.getUtel() == null || userVO.getUtel().isEmpty()) {
             model.addAttribute("error", "휴대폰 번호는 필수입니다.");
-            return "user/join";
+            return "user/joinForm";
         }
 
         // Duplicate check
         if (userService.isUserExists(userVO.getUserid())) {
             model.addAttribute("error", "이미 존재하는 ID입니다.");
-            return "user/join";
+            return "user/joinForm";
         }
         
         if (userService.isUserPhoneExists(userVO.getUtel())) {
             model.addAttribute("error", "이미 존재하는 휴대폰 번호입니다.");
-            return "user/join";
+            return "user/joinForm";
         }
         
         if (userService.isUserEmailExists(userVO.getUemail())) {
             model.addAttribute("error", "이미 존재하는 이메일입니다.");
-            return "user/join";
+            return "user/joinForm";
         }
 
         try {
@@ -121,7 +120,7 @@ public class UserController {
         } catch (Exception e) {
             log.error("Error registering user: ", e);
             model.addAttribute("error", "회원가입 중 오류가 발생했습니다.");
-            return "user/join";
+            return "user/joinForm";
         }
     }
     
@@ -180,21 +179,31 @@ public class UserController {
     
     // 회원정보 수정
     @GetMapping("/modify")
-    public String modify(Model model) {
+    public String modify(Model model, Principal principal) { // 수정: Principal 추가
         log.info("modify()..");
+        if (principal != null) {
+            String userid = principal.getName(); // 로그인된 사용자 ID
+            model.addAttribute("user", userService.getUserById(userid));
+        }
         return "user/modifyForm"; // 회원가입 뷰 이름
     }
     
-	@PutMapping("/")	// 경로 변수
+	@PutMapping("/modify")	// 경로 변수
 	public ResponseEntity<String> modify(@RequestBody UserVO user){
 		
 		log.info("modify..");
-		log.info("board" + user);
+		log.info("user" + user);
 		
 		ResponseEntity<String> entity = null;
 		
 		try {
-			int rn = UserService.modify(user);
+			
+            // 비밀번호 암호화 추가
+            if (user.getPassword() != null && !user.getPassword().isEmpty()) {
+                user.setPassword(passwordEncoder.encode(user.getPassword()));
+            }
+			
+			int rn = userService.modify(user);
 			entity = new ResponseEntity<String>(String.valueOf(rn),HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();

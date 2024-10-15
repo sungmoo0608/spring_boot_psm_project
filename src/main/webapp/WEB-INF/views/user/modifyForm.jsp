@@ -62,16 +62,20 @@
 				<span>  </span>
 					<!-- 로그인이 안된 사람 -->
 						<sec:authorize access="isAnonymous()">
-					         <p><a href="<c:url value="/login" />">로그인</a></p>
+							<p><a href="<c:url value="/login" />">로그인</a></p>
+							<span>|</span> 
+							<span><a href="<c:url value="/join" />" class="login">회원가입</a> </span>
 						</sec:authorize>
 					   
 						<!-- 로그인이 완료된 사람 -->
 						<sec:authorize access="isAuthenticated()">
 							<span><sec:authentication property="principal.username"/>님 환영합니다.</span>
+							<span>|</span> 
+							<span><a href="<c:url value="/modify" />" class="login">마이페이지</a> </span>
+							<span>|</span> 
+							<a href="<c:url value="/logout" />" class="login">로그아웃</a>
 						</sec:authorize>
-					
-						<span>|</span> 
-						<span><a href="<c:url value="/join" />" class="login">회원가입</a> </span>
+						
 				</div>
 			</div>
 		</div>
@@ -160,48 +164,46 @@
 
 	<div class="container">
 		<div class="form-container">
-			<h2 class="text-center mb-4 pt-3">회원 ID 등록</h2>
+			<h2 class="text-center mb-4 pt-3">회원 정보 수정</h2>
 			<div id="errorMessage" class="text-danger"></div>
-			<form id="adminRegisterForm" action="/insertUser" method="POST" onsubmit="return validateForm()" novalidate>
+			<form id="modifyForm" action="/modify" method="POST">
+				<input type="hidden" name="userid" value="${user.userid}"/>
                 <div class="mb-3">
                     <label for="userid" class="form-label">아이디</label>
-                    <input type="text" name="userid" id="userid" class="form-control" placeholder="아이디를 입력하세요." required />
-                    <button type="button" onclick="checkDuplicateUser()" class="btn btn-outline-secondary mt-2">중복 체크</button>
-                    <span id="useridMessage"></span>
-                    <div class="invalid-feedback">아이디를 입력해주세요.</div>
+                    <input type="text" name="userid" class="form-control" value="${user.userid}" readonly />
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">비밀번호</label>
-                    <input type="password" name="password" class="form-control" placeholder="비밀번호를 입력하세요." required minlength="6" />
+                    <input type="password" name="password" class="form-control" placeholder="새 비밀번호 (변경할 경우만 입력)" value="${user.userid}"required minlength="6" />
                     <div class="invalid-feedback">비밀번호는 최소 6자 이상이어야 합니다.</div>
                 </div>
                 <div class="mb-3">
                     <label for="uname" class="form-label">이름</label>
-                    <input type="text" name="uname" class="form-control" placeholder="이름을 입력하세요." required />
+                    <input type="text" name="uname" class="form-control" placeholder="이름을 입력하세요." value="${user.uname}" required />
                     <div class="invalid-feedback">이름을 입력해주세요.</div>
                 </div>
                 <div class="mb-3">
                     <label for="utel" class="form-label">휴대폰 번호</label>
-                    <input type="text" name="utel" id="utel" class="form-control" placeholder="휴대폰 번호를 입력하세요." required />
+                    <input type="text" name="utel" id="utel" class="form-control" placeholder="휴대폰 번호를 입력하세요." value="${user.utel}" required />
                     <button type="button" onclick="checkDuplicatePhone()" class="btn btn-outline-secondary mt-2">중복 체크</button>
                     <span id="utelMessage"></span>
                     <div class="invalid-feedback">유효한 휴대폰 번호를 입력해주세요.</div>
                 </div>
                 <div class="mb-3">
                     <label for="uadd" class="form-label">주소</label>
-                    <input type="text" name="uadd" class="form-control" placeholder="주소를 입력하세요." required />
+                    <input type="text" name="uadd" class="form-control" placeholder="주소를 입력하세요." value="${user.uadd}" required />
                     <div class="invalid-feedback">주소를 입력해주세요.</div>
                 </div>
                 <div class="mb-3">
                     <label for="uemail" class="form-label">이메일</label>
-                    <input type="email" name="uemail" id="uemail" class="form-control" placeholder="이메일을 입력하세요." required />
+                    <input type="email" name="uemail" id="uemail" class="form-control" placeholder="이메일을 입력하세요." value="${user.uemail}" required />
                     <button type="button" onclick="checkDuplicateEmail()" class="btn btn-outline-secondary mt-2">중복 체크</button>
                     <span id="uemailMessage"></span>
                     <div class="invalid-feedback">유효한 이메일 주소를 입력해주세요.</div>
                 </div>
                 <div class="d-grid gap-2">
-                    <button class="btn btn-primary" type="submit">등록하기</button>
-                    <button class="btn btn-secondary" type="button" onclick="window.location.href='login.html'">취소</button>
+                    <button class="btn btn-primary" type="submit">수정하기</button>
+                    <button class="btn btn-secondary" type="button" onclick="window.location.href='/'">취소</button>
                 </div>
             </form>
 
@@ -211,12 +213,12 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
 	</script>
-
-    <script>
+	
+	    <script>
         (function () {
             'use strict';
 
-            var form = document.getElementById('adminRegisterForm');
+            var form = document.getElementById('modifyForm');
             form.addEventListener('submit', function (event) {
                 if (!form.checkValidity()) {
                     event.preventDefault();
@@ -234,29 +236,6 @@
                 return false;
             }
             return true;
-        }
-
-        function checkDuplicateUser() {
-            var userid = $("#userid").val();
-            if (userid) {
-                $.ajax({
-                    url: "/checkUserId",
-                    type: "GET",
-                    data: { userid: userid },
-                    success: function (response) {
-                        if (response.exists) {
-                            $("#useridMessage").text("이미 존재하는 ID입니다.").css("color", "red");
-                        } else {
-                            $("#useridMessage").text("사용 가능한 ID입니다.").css("color", "green");
-                        }
-                    },
-                    error: function () {
-                        $("#errorMessage").text("중복 체크 중 오류가 발생했습니다.");
-                    }
-                });
-            } else {
-                $("#useridMessage").text("아이디를 입력하세요.").css("color", "red");
-            }
         }
         
         function checkDuplicatePhone() {
@@ -306,8 +285,42 @@
         }
         
         
+        $(document).ready(function() {
+            $('#modifyForm').on('submit', function(event) {
+                event.preventDefault(); // 기본 제출 방지
+
+                // 폼 데이터 가져오기
+                var formData = {
+                    userid: $('input[name="userid"]').val(),
+                    password: $('input[name="password"]').val(),
+                    uname: $('input[name="uname"]').val(),
+                    utel: $('input[name="utel"]').val(),
+                    uadd: $('input[name="uadd"]').val(),
+                    uemail: $('input[name="uemail"]').val()
+                };
+
+                $.ajax({
+                    url: '/modify', // PUT 요청할 URL
+                    type: 'PUT',
+                    contentType: 'application/json',
+                    data: JSON.stringify(formData),
+                    success: function(response) {
+                        // 성공 시 처리
+                        alert('회원정보가 수정되었습니다.');
+                        window.location.href = '/'; // 수정 완료 후 리다이렉트
+                    },
+                    error: function(xhr) {
+                        // 오류 시 처리
+                        alert('수정 중 오류가 발생했습니다: ' + xhr.responseText);
+                    }
+                });
+            });
+        });
+
+        
     </script>
 
 </body>
 
 </html>
+

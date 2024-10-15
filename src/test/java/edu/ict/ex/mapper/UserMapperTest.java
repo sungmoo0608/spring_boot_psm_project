@@ -40,23 +40,40 @@ class UserMapperTest {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
-	
+	@Disabled
 	@Test
 	void testInsertUser() {
 		
 		UserVO user = new UserVO();
-		user.setUsername("abc");
-		user.setUserid("abc");
-		user.setPassword(passwordEncoder.encode("abc"));
-		user.setUtel("010-1111-4444");
+		user.setUserid("DDDDDD");
+		user.setPassword(passwordEncoder.encode("DDDDDD"));
+		user.setUname("DDDDDD");
+		user.setUtel("010-5555-7777");
 		user.setUadd("서울시 성동구 아차산로 117");
-		user.setUemail("admin2@ict.com");
+		user.setUemail("DDDDDD@ict.com");
 		user.setEnabled("1");
 		
 		userMapper.insertUser(user);
 		userMapper.insertAuthorities(user);
 		
 		assertNotNull(user);
+		
+		System.out.println(user);
+	}
+	
+	@Disabled
+	@Test
+	void testModifyUser() {
+		
+		UserVO user = userMapper.getUser("DDDDDD");
+		user.setPassword(passwordEncoder.encode("DDDDDD3"));
+		user.setUname("DDDDDD3");
+		user.setUtel("010-2222-4444");
+		user.setUadd("서울시 성동구 아차산로 117");
+		user.setUemail("DDDDDD3@ict.com");
+		user.setEnabled("1");
+		
+		userMapper.modifyUser(user);
 		
 		System.out.println(user);
 	}
