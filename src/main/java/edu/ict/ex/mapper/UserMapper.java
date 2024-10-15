@@ -23,10 +23,10 @@ public interface UserMapper  {
     @Select("SELECT COUNT(*) FROM users WHERE uemail = #{uemail}")
     int countUserByEmail(String uemail);
     
-	@Update("update users set password = #{password}, uname = #{uname}, utel = #{utel}, uadd = #{uadd}, uemail = #{uemail} WHERE userid = #{userid}")
+	@Update("update users set password = #{password}, uname = #{uname}, utel = #{utel}, zipcode = #{zipcode}, uadr = #{uadr}, uadrdetail = #{uadrdetail}, uemail = #{uemail} WHERE userid = #{userid}")
 	int modifyUser(UserVO userVO);
 	
-	@Insert("insert into users(userid, password, uname, utel, uadd, uemail) VALUES ( #{userid}, #{password}, #{uname}, #{utel}, #{uadd}, #{uemail} )")
+	@Insert("insert into users(userid, password, uname, utel, zipcode, uadr, uadrdetail, uemail) VALUES ( #{userid}, #{password}, #{uname}, #{utel}, #{zipcode}, #{uadr}, #{uadrdetail}, #{uemail} )")
 	int insertUser(UserVO userVO);
 	   
 	@Insert("insert into authorities(userid,authority) values(#{userid},'ROLE_USER')")

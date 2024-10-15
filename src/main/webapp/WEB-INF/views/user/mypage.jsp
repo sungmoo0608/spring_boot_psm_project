@@ -32,21 +32,15 @@
 <link rel="stylesheet" type="text/css" href="css/vendor.css">
 <link rel="stylesheet" type="text/css" href="style.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
 <link
 	href="https://fonts.googleapis.com/css2?family=Chilanka&family=Montserrat:wght@300;400;500&display=swap"
 	rel="stylesheet">
-	
-	<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-  />
-	
 
 </head>
 
-<body onload="document.f.id.focus();">
+<body>
 
 	<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <defs>
@@ -140,6 +134,7 @@
 							</sec:authorize>
 							
 						</ul>
+
 					</div>
 
 					<button class="navbar-toggler" type="button"
@@ -160,37 +155,25 @@
 							<ul
 								class="navbar-nav menu-list list-unstyled d-flex gap-md-3 mb-0">
 
-								<li class="nav-item"><a href="pet.html" class="nav-link">입양
-										대기 동물 관리</a></li>
+								<li class="nav-item"><a href="hope.html" class="nav-link">반려동물
+										찾아요</a></li>
+								<br>
+
+								<li class="nav-item"><a href="shelter.html"
+									class="nav-link">보호소 방문 예약</a></li>
 								<br>
 
 
 								<li class="nav-item dropdown"><a
 									class="nav-link dropdown-toggle" role="button" id="pages"
-									data-bs-toggle="dropdown" aria-expanded="false">회원 관리</a>
+									data-bs-toggle="dropdown" aria-expanded="false">게시판</a>
 									<ul class="dropdown-menu" aria-labelledby="pages">
-										<li><a href="hope.html" class="dropdown-item">입양 회원
-												정보 관리</a></li>
-										<li><a href="shelter.html" class="dropdown-item">입양 대기소
-												방문 예약 관리</a></li>
-										<li><a href="find.html" class="dropdown-item">반려 동물
-												찾아요 관리</a></li>
-									</ul></li>
-								<br>
-
-								<li class="nav-item dropdown"><a
-									class="nav-link dropdown-toggle" role="button" id="pages"
-									data-bs-toggle="dropdown" aria-expanded="false">게시글 관리</a>
-									<ul class="dropdown-menu" aria-labelledby="pages">
-										<li><a href="notice.html" class="dropdown-item">공지
-												사항</a></li>
+										<li><a href="notice.html" class="dropdown-item">공지 사항</a></li>
 										<li><a href="areview.html" class="dropdown-item">입양
 												후기</a></li>
-										<li><a href="qna.html" class="dropdown-item">Q
-												& A</a></li>
+										<li><a href="qna.html" class="dropdown-item">Q & A</a></li>
 									</ul></li>
 								<br>
-								</li>
 
 							</ul>
 
@@ -204,39 +187,99 @@
 		</section>
 	</header>
 
-	
 
-	<div class="login-container text-center ">
-	    
-	    <div style="background-color: rgb(255, 254, 239);  height: 550px; margin: 0 auto; " class="pt-5 ">
-	
-	    <h2 class="pb-5 ">로그인 <i class="fa-solid fa-paw"></i></h2>
-	    	<c:url value="/login" var="loginUrl" />
-	    	  	
-	        <form:form name="f" action="${loginUrl}" method="POST" >
-	        
-	        	<c:if test="${param.error != null}">
-					<p>아이디와 비밀번호가 잘못되었습니다.</p>
-				</c:if>
-				
-				<c:if test="${param.logout != null}">
-					<p>로그아웃 하였습니다.</p>
-				</c:if>
-				
-	            <label for="userid">아이디</label> <input type="text" id="userid" name="userid" placeholder="아이디" required><br><br>
-	            <label for="password">비밀번호</label> <input type="password" id="password" name="password" placeholder="비밀번호" required><br><br>
-	            <button type="submit" class="btn btn-outline-secondary">로그인</button><br>      
-			
-			</form:form>
-			      
-	        <br>
-	        <p>계정이 없으신가요? <a href="<c:url value="/join" />" ><button type="button" class="btn btn-outline-secondary">회원가입</button></a></p>
-	        
+
+	<div class="container mt-5">
+		<h1 class="text-center mb-5">마이페이지</h1>
+
+		<div class="row">
+			<div class="col-md-4 mb-4">
+				<div class="card">
+					<div class="card-body text-center">
+					
+						<h5>회원 정보</h5>
+						<p class="card-text mb-0">이름: <sec:authentication property="principal.username"/> </p>
+						<p class="card-text mb-0">전화번호 : ${user.utel} </p>
+						<button class="btn btn-success mt-3" onclick="window.location.href='/modify'">정보 수정</button>
+						<button class="btn btn-danger mt-3" onclick="window.location.href='/deleteUser'">회원 탈퇴</button>
+						
+					</div>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="card mb-4">
+					<div class="card-header">
+						<h4>
+							<i class="fas fa-paw me-2"></i>입양 희망 동물 조회
+						</h4>
+					</div>
+
+					<div class="row ">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-md-4 mb-3">
+									<div class="card">
+										<img src="images/item8.jpg" class="card-img-top" alt="관심 동물 1">
+										<div class="card-body">
+											<h5 class="card-title">이름: {}</h5>
+											<p class="card-text">
+												나이: {}살<br> 품종: {}
+											</p>
+											<a href="#" class="btn btn-outline-primary">상세 정보 누르면
+												특이사항나오게</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 mb-3">
+									<div class="card">
+										<img src="images/item8.jpg" class="card-img-top" alt="관심 동물 2">
+										<div class="card-body">
+											<h5 class="card-title">이름: {}</h5>
+											<p class="card-text">
+												나이: {}살<br> 품종: {}
+											</p>
+											<a href="#" class="btn btn-outline-primary">상세 정보</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 mb-3">
+									<div class="card">
+										<img src="images/item8.jpg" class="card-img-top" alt="관심 동물 3">
+										<div class="card-body">
+											<h5 class="card-title">이름: {}</h5>
+											<p class="card-text">
+												나이: {}살<br> 품종: {}
+											</p>
+											<a href="#" class="btn btn-outline-primary">상세 정보</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+
+				<div class="card mb-4">
+					<div class="card-header">
+						<h4>
+							<i class="fas fa-calendar-alt me-2"></i>보호소 방문 예정
+						</h4>
+					</div>
+					<div class="card-body">
+						<p class="mb-0">
+							다음 방문 예정일: <strong>{날짜}</strong>
+						</p>
+						<small class="text-muted">방문 일정 변경은 최소 24시간 전에 방문 예약 페이지에서
+							변경 부탁드립니다.</small>
+					</div>
+				</div>
+
+			</div>
 		</div>
-		
+
 	</div>
-
-
 
 	<div class="container-fluid">
 		<hr class="m-0">
@@ -261,6 +304,8 @@
 			</div>
 		</div>
 	</div>
+
+
 
 	<script src="js/jquery-1.11.0.min.js"></script>
 	<script

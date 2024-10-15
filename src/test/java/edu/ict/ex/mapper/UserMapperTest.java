@@ -40,17 +40,18 @@ class UserMapperTest {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
-	@Disabled
 	@Test
 	void testInsertUser() {
 		
 		UserVO user = new UserVO();
-		user.setUserid("DDDDDD");
-		user.setPassword(passwordEncoder.encode("DDDDDD"));
-		user.setUname("DDDDDD");
-		user.setUtel("010-5555-7777");
-		user.setUadd("서울시 성동구 아차산로 117");
-		user.setUemail("DDDDDD@ict.com");
+		user.setUserid("BBBBBB");
+		user.setPassword(passwordEncoder.encode("BBBBBB"));
+		user.setUname("BBBBBB");
+		user.setUtel("010-5555-8888");
+		user.setZipcode("04794");
+		user.setUadr("서울시 성동구 아차산로 117");
+		user.setUadrdetail("2층 한국ICT인재개발원 성수센터");
+		user.setUemail("BBBBBB@ict.com");
 		user.setEnabled("1");
 		
 		userMapper.insertUser(user);
@@ -65,12 +66,14 @@ class UserMapperTest {
 	@Test
 	void testModifyUser() {
 		
-		UserVO user = userMapper.getUser("DDDDDD");
-		user.setPassword(passwordEncoder.encode("DDDDDD3"));
-		user.setUname("DDDDDD3");
-		user.setUtel("010-2222-4444");
-		user.setUadd("서울시 성동구 아차산로 117");
-		user.setUemail("DDDDDD3@ict.com");
+		UserVO user = userMapper.getUser("AAAAAA");
+		user.setPassword(passwordEncoder.encode("AAAAAA"));
+		user.setUname("AAAAAA1");
+		user.setUtel("010-5555-7777");
+		user.setZipcode("04794");
+		user.setUadr("서울시 성동구 아차산로 117");
+		user.setUadrdetail("2층 한국ICT인재개발원 성수센터");
+		user.setUemail("AAAAAA1@ict.com");
 		user.setEnabled("1");
 		
 		userMapper.modifyUser(user);

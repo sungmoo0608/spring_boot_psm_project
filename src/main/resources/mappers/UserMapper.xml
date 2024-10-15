@@ -13,7 +13,9 @@
 		<result property="password" column="password"/>
 		<result property="uname" column="uname"/>
 		<result property="utel" column="utel"/>
-		<result property="uadd" column="uadd"/>
+		<result property="zipcode" column="zipcode"/>
+		<result property="uadr" column="uadr"/>
+		<result property="uadrdetail" column="uadrdetail"/>
 		<result property="uemail" column="uemail"/>
 		<result property="enabled" column="enabled"/>
 		<association property="authList" resultMap="authMap"></association>
