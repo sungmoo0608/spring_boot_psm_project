@@ -1,4 +1,4 @@
-package edu.ict.ex.vo;
+package edu.ict.ex.uvo;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

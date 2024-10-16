@@ -8,7 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import edu.ict.ex.vo.UserVO;
+import edu.ict.ex.umapper.UserMapper;
+import edu.ict.ex.uvo.UserVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

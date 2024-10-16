@@ -30,12 +30,6 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Chilanka&family=Montserrat:wght@300;400;500&display=swap"
 	rel="stylesheet">
-	
-	<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-  />
-	
 
 </head>
 
@@ -77,17 +71,15 @@
 		<div class="container ">
 			<div class="row pb-0 pb-sm-0 align-items-center ">
 
-				<div class="col-sm-4 col-lg-4 text-center text-sm-center">
-				
-				</div>
+				<div class="col-sm-4 col-lg-4 text-center text-sm-center"></div>
 
 
 
 
 				<div class="col-sm-12 col-lg-4 text-center text-sm-center">
 					<div class="main-logo">
-						<a href="user_main.html"> <img src="images/logo3.jpg" alt="logo"
-							class="img-fluid">
+						<a href="user_main.html"> <img src="images/logo3.jpg"
+							alt="logo" class="img-fluid">
 						</a>
 					</div>
 				</div>
@@ -170,52 +162,113 @@
 
 
 
+	<div class="container mt-5 ">
+		<h1 class="mb-4 text-center">
+			<b>정기적인 건강 Check!</b>
+		</h1>
 
-  <div class="container" style=" height:550px">
-        <div class="form-container">
-            <h2 class="text-center mb-4 pt-3">로그인</h2>
-            <form id="adminRegisterForm" novalidate>
-                <div class="mb-3">
-                    <label for="userName" class="form-label">아이디</label>
-                    <input type="text" class="form-control" id="userName" required>
-                    <div class="invalid-feedback">
-                        이름을 입력해주세요.
-                    </div>
-                </div>
-                     
-               <div class="mb-5">
-                    <label for="userPassword" class="form-label">비밀번호</label>
-                    <input type="password" class="form-control" id="userPassword" required minlength="8">
-                    <div class="invalid-feedback">
-                        비밀번호는 최소 8자 이상이어야 합니다.
-                    </div>
-                </div>
-          
-                 
-                <div class="d-grid gap-2">
-                    <button class="btn btn-primary" type="submit">로그인</button>
-             
-                </div>
-            </form>
-        </div>
-    </div>
+		<div class="card mb-4">
+			<div class="card-body">
 
+				<h6 class="card-subtitle mb-2 text-muted">작성일 : {}</h6>
+				<hr>
 
- <script>
-        (function () {
-            'use strict'
+				<br>
+				<h4>
+					<b>핑핑 직원들이 아낌없이 보살펴주는 동물들의 생명 지킴이</b>
+				</h4>
 
-            var form = document.getElementById('adminRegisterForm')
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
-                }
+				<br>
 
-                form.classList.add('was-validated')
-            }, false)
-        })()
-    </script>
+				<h5>
+					<b>1. 신체검사</b>
+				</h5>
+				<p>체중, 체온, 맥박, 호흡수 등을 측정하여 전반적인 건강 상태를 평가합니다. 피부, 귀, 눈, 치아 등을
+					점검하여 이상 징후를 확인합니다.</p>
+
+				<br>
+
+				<h5>
+					<b>2. 백신 접종</b>
+				</h5>
+				<p>파보바이러스, 광견병, 보르데텔라 등 필수 백신 접종을 확인하고 필요 시 추가 접종을 실시합니다.</p>
+
+				<br>
+
+				<h5>
+					<b>3. 구충 및 외부 기생충 예방</b>
+				</h5>
+				<p>내외부 기생충(예: 벼룩, 진드기, 회충 등) 구충제를 주기적으로 투여합니다.</p>
+
+				<br>
+
+				<h5>
+					<b>4. 혈액 검사</b>
+				</h5>
+				<p>일반적인 건강 상태를 확인하고 특정 질병(예: 간, 신장 기능 등)을 조기에 발견하기 위해 혈액 검사를 진행할
+					수 있습니다.</p>
+
+				<br>
+
+				<h5>
+					<b>5. 영양 상태 점검</b>
+				</h5>
+				<p>급여되는 사료의 질과 양을 평가하여 적절한 영양 섭취를 돕습니다.</p>
+
+				<br>
+
+				<h5>
+					<b>6. 행동 관찰</b>
+				</h5>
+				<p>스트레스, 불안, 행동 문제 등을 관찰하여 필요한 경우 행동 교정 프로그램을 진행합니다.</p>
+
+				<br>
+
+				<h5>
+					<b>7. 정신 건강 체크 :</b>
+				</h5>
+				<p>사회화와 상호작용이 중요한 유기견의 경우, 다양한 환경과 사람과의 접촉을 통해 정신 건강을 관리합니다.</p>
+
+			</div>
+		</div>
+		<div class="text-center mt-4">
+			<a href="notice.html"><button class="btn btn-secondary">이전으로
+					돌아가기</button></a>
+		</div>
+		<h3 class="mb-3">댓글</h3>
+		<div id="comments">
+			<div class="comment">
+				<p>
+					<strong>이름</strong> - 작성 날짜 :
+				</p>
+				<p>가을 이벤트 혹시 끝났나요 ?!</p>
+				<button class="btn btn-danger btn-sm float-end delete-comment">삭제</button>
+				</p>
+			</div>
+			<div class="comment">
+				<p>
+					<strong>이름</strong> - 작성 날짜 :
+				</p>
+				<p>좋은 정보네요!</p>
+				<button class="btn btn-danger btn-sm float-end delete-comment">삭제</button>
+				</p>
+			</div>
+		</div>
+
+		<form id="commentForm" class="mt-4 mb-5">
+			<h4>댓글 작성</h4>
+			<div class="mb-3">
+				<label for="name" class="form-label">이름</label> <input type="text"
+					class="form-control" id="name" required>
+			</div>
+			<div class="mb-3">
+				<label for="comment" class="form-label">댓글</label>
+				<textarea class="form-control" id="comment" rows="3" required></textarea>
+			</div>
+			<button type="submit" class="btn btn-primary">댓글 작성</button>
+		</form>
+	</div>
+
 
 
 
@@ -252,17 +305,41 @@
 
 
 
-	<script src="js/jquery-1.11.0.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-		crossorigin="anonymous"></script>
-	<script src="js/plugins.js"></script>
-	<script src="js/script.js"></script>
-	<script
-		src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-</body>
 
+
+
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+        document.getElementById('commentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var name = document.getElementById('name').value;
+            var comment = document.getElementById('comment').value;
+            var date = new Date().toISOString().split('T')[0];
+
+            var newComment = document.createElement('div');
+            newComment.className = 'comment';
+            newComment.innerHTML = `
+                <p><strong>${name}</strong> - ${date}</p>
+                <p>${comment}</p>
+            `;
+
+            document.getElementById('comments').appendChild(newComment);
+
+            document.getElementById('name').value = '';
+            document.getElementById('comment').value = '';
+        });
+        
+        
+        document.addEventListener('click', function(e) {
+            if(e.target && e.target.classList.contains('delete-comment')) {
+                if(confirm('정말로 이 댓글을 삭제하시겠습니까?')) {
+                    e.target.closest('.comment').remove();
+                }
+            }
+        });
+    </script>
+</body>
 </html>

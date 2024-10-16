@@ -1,4 +1,4 @@
-package edu.ict.ex.controller;
+package edu.ict.ex.ucontroller;
 
 import java.security.Principal;
 import java.util.HashMap;
@@ -21,8 +21,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import edu.ict.ex.service.UserService;
-import edu.ict.ex.vo.UserVO;
+import edu.ict.ex.uservice.UserService;
+import edu.ict.ex.uvo.UserVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -117,6 +117,7 @@ public class UserController {
         try {
             userService.registerUser(userVO);
             return "redirect:/";
+            
         } catch (Exception e) {
             log.error("Error registering user: ", e);
             model.addAttribute("error", "회원가입 중 오류가 발생했습니다.");
@@ -179,7 +180,7 @@ public class UserController {
     
     // 회원정보 수정
     @GetMapping("/modify")
-    public String modify(Model model, Principal principal) { // 수정: Principal 추가
+    public String modify(Model model, Principal principal) { 
         log.info("modify()..");
         if (principal != null) {
             String userid = principal.getName(); // 로그인된 사용자 ID

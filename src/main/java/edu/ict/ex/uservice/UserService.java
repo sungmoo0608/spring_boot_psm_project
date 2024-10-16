@@ -1,12 +1,12 @@
-package edu.ict.ex.service;
+package edu.ict.ex.uservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.ict.ex.mapper.UserMapper;
-import edu.ict.ex.vo.UserVO;
+import edu.ict.ex.umapper.UserMapper;
+import edu.ict.ex.uvo.UserVO;
 
 @Service
 public class UserService {

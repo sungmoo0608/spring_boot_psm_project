@@ -30,10 +30,12 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Chilanka&family=Montserrat:wght@300;400;500&display=swap"
 	rel="stylesheet">
-
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-
+	
+	<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  />
+	
 
 </head>
 
@@ -75,15 +77,17 @@
 		<div class="container ">
 			<div class="row pb-0 pb-sm-0 align-items-center ">
 
-				<div class="col-sm-4 col-lg-4 text-center text-sm-center"></div>
+				<div class="col-sm-4 col-lg-4 text-center text-sm-center">
+				
+				</div>
 
 
 
 
 				<div class="col-sm-12 col-lg-4 text-center text-sm-center">
 					<div class="main-logo">
-						<a href="admin_main.html"> <img src="images/logo3.jpg"
-							alt="logo" class="img-fluid">
+						<a href="user_main.html"> <img src="images/logo3.jpg" alt="logo"
+							class="img-fluid">
 						</a>
 					</div>
 				</div>
@@ -98,13 +102,13 @@
 			<hr class="m-0">
 		</div>
 
-		<section>
+<section>
 			<div class="container">
 				<nav class="main-menu d-flex navbar navbar-expand-lg ">
 
 					<div class="d-flex d-lg-none align-items-end mt-3">
 						<ul class="d-flex justify-content-end list-unstyled m-0">
-							<li><a href="account.html" class="mx-3"> <iconify-icon
+							<li><a href="mypage.html" class="mx-3"> <iconify-icon
 										icon="healthicons:person" class="fs-4"></iconify-icon>
 							</a></li>
 
@@ -131,28 +135,17 @@
 						<div class="offcanvas-body justify-content-center">
 							<ul
 								class="navbar-nav menu-list list-unstyled d-flex gap-md-3 mb-0">
-
 								<li class="nav-item"><a href="pet.html" class="nav-link">입양
 										대기 동물 관리</a></li>
 								<br>
-
-
-								<li class="nav-item dropdown"><a
-									class="nav-link dropdown-toggle" role="button" id="pages"
-									data-bs-toggle="dropdown" aria-expanded="false">회원 관리</a>
-									<ul class="dropdown-menu" aria-labelledby="pages">
-										<li><a href="hope.html" class="dropdown-item">입양 회원
-												정보 관리</a></li>
-										<li><a href="shelter.html" class="dropdown-item">입양
-												대기소 방문 예약 관리</a></li>
-										<li><a href="find.html" class="dropdown-item">반려 동물
-												찾아요 관리</a></li>
-									</ul></li>
+								<li class="nav-item"><a href="ushelter.html"
+									class="nav-link">보호소 방문 예약</a></li>
 								<br>
 
+
 								<li class="nav-item dropdown"><a
 									class="nav-link dropdown-toggle" role="button" id="pages"
-									data-bs-toggle="dropdown" aria-expanded="false">게시글 관리</a>
+									data-bs-toggle="dropdown" aria-expanded="false">게시판</a>
 									<ul class="dropdown-menu" aria-labelledby="pages">
 										<li><a href="notice.html" class="dropdown-item">공지 사항</a></li>
 										<li><a href="areview.html" class="dropdown-item">입양
@@ -160,7 +153,6 @@
 										<li><a href="qna.html" class="dropdown-item">Q & A</a></li>
 									</ul></li>
 								<br>
-								</li>
 
 							</ul>
 
@@ -178,40 +170,85 @@
 
 
 
-	<div class="login-container text-center ">
-		<div style="background-color: rgb(255, 254, 239);"
-			class="pb-5 pt-5">
-			<h2 class="pb-5 ">
-				회원가입 <i class="fa-solid fa-paw"></i>
-			</h2>
-			<form>
 
-				<div>
-					<div style="margin-bottom: 15px;">
-						이름 <input style="padding: 8px;" type="text" placeholder="ex) 홍길동"
-							required>
-					</div>
-					<div style="margin-bottom: 15px;">
-						나이 <input style="padding: 8px;" type="password"
-							placeholder="ex) 20 숫자" required>
-					</div>
-					<div style="margin-bottom: 15px;">
-						번호 <input style="padding: 8px;" type="text"
-							placeholder="01012345678" required>
-					</div>
-					<div style="margin-bottom: 15px;">
-						이메일 <input style="padding: 8px;" type="password"
-							placeholder="abcd@naver.com" required>
-					</div>
-					<div style="margin-bottom: 15px;">
-						주소 <input style="padding: 8px;" type="password"
-							placeholder="도로명 주소" required>
-					</div>
-				</div>
-				<button style="padding: 10px;" type="submit"
-					class="btn btn-outline-secondary mb-5">회원가입</button>
 
-			</form>
+
+
+
+ <div class="container">
+        <div class="form-container">
+            <h2 class="text-center mb-4 pt-3">회원가입</h2>
+            <form id="adminRegisterForm" novalidate>
+                <div class="mb-3">
+                    <label for="userName" class="form-label">이름</label>
+                    <input type="text" class="form-control" id="adminNameA" required>
+                    <div class="invalid-feedback">
+                        이름을 입력해주세요.
+                    </div>
+                </div>
+                      <div class="mb-3">
+                    <label for="userAge" class="form-label">나이</label>
+                    <input type="text" class="form-control" id="userAgeA" required>
+                    <div class="invalid-feedback">
+                        나이를 입력해주세요.
+                    </div>
+                </div>
+                
+                 <div class="mb-3">
+                    <label for="userEmail" class="form-label">전화번호</label>
+                    <input type="email" class="form-control" id="userEmailA" required>
+                    <div class="invalid-feedback">
+                        유효한 이메일 주소를 입력해주세요.
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="userEmail" class="form-label">이메일</label>
+                    <input type="email" class="form-control" id="userEmailA" required>
+                    <div class="invalid-feedback">
+                        유효한 이메일 주소를 입력해주세요.
+                    </div>
+                </div>
+               <div class="mb-3">
+                    <label for="userPassword" class="form-label">비밀번호</label>
+                    <input type="password" class="form-control" id="userPasswordA" required minlength="8">
+                    <div class="invalid-feedback">
+                        비밀번호는 최소 8자 이상이어야 합니다.
+                    </div>
+                </div>
+          
+                  <div class="mb-3">
+                    <label for="userAddress" class="form-label">주소</label>
+                    <input type="text" class="form-control" id="userAddress1A" required>
+                    <div class="invalid-feedback">
+                        주소를 입력해주세요.
+                    </div>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" type="submit">등록하기</button>
+                    <button class="btn btn-secondary" type="button">취소</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        (function () {
+            'use strict'
+
+            var form = document.getElementById('adminRegisterForm')
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+        })()
+    </script>
+
+
 
 
 

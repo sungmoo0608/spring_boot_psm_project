@@ -1,4 +1,4 @@
-package edu.ict.ex.security;
+package edu.ict.ex.usecurity;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,8 +8,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import edu.ict.ex.vo.AuthVO;
-import edu.ict.ex.vo.UserVO;
+import edu.ict.ex.uvo.AuthVO;
+import edu.ict.ex.uvo.UserVO;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 

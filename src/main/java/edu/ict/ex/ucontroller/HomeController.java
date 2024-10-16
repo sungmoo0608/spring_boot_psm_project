@@ -1,4 +1,4 @@
-package edu.ict.ex.controller;
+package edu.ict.ex.ucontroller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

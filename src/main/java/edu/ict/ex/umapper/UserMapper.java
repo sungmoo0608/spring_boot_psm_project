@@ -1,4 +1,4 @@
-package edu.ict.ex.mapper;
+package edu.ict.ex.umapper;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import edu.ict.ex.vo.UserVO;
+import edu.ict.ex.uvo.UserVO;
 
 //마이바티스용 인터페이스라는걸 알려주는 애노테이션
 @Mapper

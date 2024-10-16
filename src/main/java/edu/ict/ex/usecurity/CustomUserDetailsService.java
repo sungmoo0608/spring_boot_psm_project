@@ -1,4 +1,4 @@
-package edu.ict.ex.security;
+package edu.ict.ex.usecurity;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -6,8 +6,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import edu.ict.ex.mapper.UserMapper;
-import edu.ict.ex.vo.UserVO;
+import edu.ict.ex.umapper.UserMapper;
+import edu.ict.ex.uvo.UserVO;
 import lombok.extern.slf4j.Slf4j;
 
 //알렉스 아저씨가 말하는 user 정보를 주고 받기 위한 Fax

@@ -1,4 +1,4 @@
-package edu.ict.ex.config;
+package edu.ict.ex.uconfig;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -11,7 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import edu.ict.ex.security.CustomUserDetailsService;
+import edu.ict.ex.usecurity.CustomUserDetailsService;
 
 @Configuration		//@Component + 설정
 @EnableWebSecurity	//필터 등록 = 시큐리티 설정 파일이다 라고 알려주는 역할

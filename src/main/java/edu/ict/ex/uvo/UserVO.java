@@ -1,4 +1,4 @@
-package edu.ict.ex.vo;
+package edu.ict.ex.uvo;
 
 import java.util.List;
 
