@@ -45,14 +45,14 @@ class UserMapperTest {
 	void testInsertUser() {
 		
 		UserVO user = new UserVO();
-		user.setUserid("BBBBBB");
-		user.setPassword(passwordEncoder.encode("BBBBBB"));
-		user.setUname("BBBBBB");
-		user.setUtel("010-5555-8888");
+		user.setUserid("DDDDDD");
+		user.setPassword(passwordEncoder.encode("DDDDDD"));
+		user.setUname("홍길동");
+		user.setUtel("010-4444-2244");
 		user.setZipcode("04794");
-		user.setUadr("서울시 성동구 아차산로 117");
+		user.setUadr("서울시 성동구 아차산로 113");
 		user.setUadrdetail("2층 한국ICT인재개발원 성수센터");
-		user.setUemail("BBBBBB@ict.com");
+		user.setUemail("DDDDDD@ict.com");
 		user.setEnabled("1");
 		
 		userMapper.insertUser(user);
@@ -62,6 +62,7 @@ class UserMapperTest {
 		
 		System.out.println(user);
 	}
+	
 	
 	@Disabled
 	@Test

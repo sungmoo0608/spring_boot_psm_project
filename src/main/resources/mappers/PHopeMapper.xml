@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.ict.ex.PetMapper.PHopeMapper">
+	<select id="gethopeList" resultMap="PetHopeIdJoinVOMap"> <!-- 리스트 -->
+		SELECT h.HOPENO, h."desertionNo", h.HDATE, h.PET_USER_ID, p.CARENM
+FROM HOPELIST h
+JOIN pets3 p ON h."desertionNo" = p."DESERTIONNO" ORDER BY h.HOPENO DESC
+	</select>
+	
+	
+	
+	<resultMap id="PetHopeIdJoinVOMap" type="edu.ict.ex.vo.PetHopeIdJoinVO">
+		<association property="petVO" resultMap="petVOMap"></association>
+		<association property="petHopeVO" resultMap="petHopeVOMap"></association>
+	</resultMap>
+	
+	
+	<resultMap id="petVOMap" type="edu.ict.ex.vo.PetVO">
+	 	<result property="desertionNo" column="desertionNo" />
+	    <result property="filename" column="filename" />
+	    <result property="happenDt" column="happenDt" />
+	    <result property="happenPlace" column="happenPlace" />
+	    <result property="kindCd" column="kindCd" />
+	    <result property="colorCd" column="colorCd" />
+	    <result property="age" column="age" />
+	    <result property="weight" column="weight" />
+	    <result property="noticeNo" column="noticeNo" />
+	    <result property="noticeSdt" column="noticeSdt" />
+	    <result property="noticeEdt" column="noticeEdt" />
+	    <result property="popfile" column="popfile" />
+	    <result property="processState" column="processState" />
+	    <result property="sexCd" column="sexCd" />
+	    <result property="neuterYn" column="neuterYn" />
+	    <result property="specialMark" column="specialMark" />
+	    <result property="careNm" column="careNm" />
+	    <result property="careTel" column="careTel" />
+	    <result property="careAddr" column="careAddr" />
+	    <result property="orgNm" column="orgNm" />
+	    <result property="chargeNm" column="chargeNm" />
+	    <result property="officetel" column="officetel" />
+	</resultMap>
+	
+	<resultMap id="petHopeVOMap" type="edu.ict.ex.vo.PetHopeVO">
+		<result property="hopeno" column="hopeno" />
+		<result property="desertionNo" column="desertionNo" />
+		<result property="hdate" column="hdate" />
+		<result property="pet_user_id" column="pet_user_id" />
+	</resultMap>
+	
+	
+	<!-- <select id="get" resultType="edu.ict.ex.vo.PetVO"> 상세정보
+		select * from pets3 where desertionNo = #{desertionNo}
+	</select>
+
+	<update id="modify"> 수정
+    <![CDATA[
+       UPDATE pets3 SET processState = #{processState}, officetel = #{officetel}, specialMark = #{specialMark} WHERE desertionNo = #{desertionNo}
+    ]]>
+	</update>
+-->
+	<delete id="remove">
+    <![CDATA[
+        delete from HOPELIST where hopeno = #{hopeno}
+    ]]>
+	</delete>
+
+	<insert id="insert">
+    <![CDATA[
+       INSERT INTO "HOPELIST" ("HOPENO", "desertionNo", "HDATE", "PET_USER_ID") VALUES (hopeno_seq.NEXTVAL, #{desertionNo}, #{hdate}, #{pet_user_id})
+    ]]>
+	</insert>
+ 
+</mapper>

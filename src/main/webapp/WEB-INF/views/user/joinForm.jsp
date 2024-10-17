@@ -23,7 +23,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/vendor.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -37,7 +36,7 @@
 
 	<jsp:include page="/WEB-INF/views/header.jsp" />
 
-	<div class="container">
+	<div class="container mb-4">
 		<div class="form-container">
 			<h2 class="text-center mb-4 pt-3">회원 가입</h2>
 			<div id="errorMessage" class="text-danger"></div>
@@ -92,14 +91,15 @@
 				    <label for="uemail" class="form-label">이메일</label> 
 				    <div class="input-group">
 				        <input type="text" name="uemail" id="emailInput" class="form-control" placeholder="이메일을 입력하세요." required />
-				        <select id="emailDomain" class="form-select" onchange="updateEmail()">
+				        <select id="emailDomain" class="form-control" onchange="updateEmail()">
+				   			<option value="">도메인 선택</option>
 				            <option value="@naver.com">@naver.com</option>
 				            <option value="@nate.com">@nate.com</option>
 				            <option value="@daum.net">@daum.net</option>
 				            <option value="@hanmail.net">@hanmail.net</option>
 				            <option value="@kakao.com">@kakao.com</option>
 				            <option value="@gmail.com">@gmail.com</option>
-				            <option value="">직접 입력</option>
+							<option value="">직접 입력</option>
 				        </select>
 				    </div>
 				    <button type="button" onclick="checkDuplicateEmail()" class="btn btn-outline-secondary mt-2">중복 체크</button>

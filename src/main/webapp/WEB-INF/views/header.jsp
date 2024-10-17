@@ -4,8 +4,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-	
 	<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 	    <defs>  
 	      <symbol xmlns="http://www.w3.org/2000/svg" id="category"
@@ -33,7 +31,7 @@
 	      </symbol>
 	    </defs>
   	</svg>
-
+  	
 	<header>
 		<div class="container ">
 			<div class="row pb-0 mb-3 align-items-center ">	
@@ -109,16 +107,27 @@
 
 						<div class="offcanvas-body justify-content-center">
 							<ul class="navbar-nav menu-list list-unstyled d-flex gap-md-3 mb-0">
-								<li class="nav-item"><a href="hope.html" class="nav-link">엄마 & 아빠를 찾아요</a></li>
-								<li class="nav-item"><a href="shelter.html" class="nav-link">보호소 방문 예약</a></li>
+
+								<li class="nav-item"><a href="<c:url value="/pet" />" class="nav-link">입양 대기 동물 관리</a></li>
+
 								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">게시판</a>
+									<a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">회원 관리</a>
+									<ul class="dropdown-menu" aria-labelledby="pages">
+										<li><a href="<c:url value="/hope" />" class="dropdown-item">입양 회원 정보 관리</a></li>
+										<li><a href="<c:url value="/ushelter" />" class="dropdown-item">입양 대기소 방문 예약 관리</a></li>
+									</ul>
+								</li>
+								
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">게시글 관리</a>
 									<ul class="dropdown-menu" aria-labelledby="pages">
 										<li><a href="notice.html" class="dropdown-item">공지 사항</a></li>
 										<li><a href="areview.html" class="dropdown-item">입양 후기</a></li>
 										<li><a href="qna.html" class="dropdown-item">Q & A</a></li>
+										<li><a href="border.html" class="dropdown-item">기타 자료</a></li>
 									</ul>
-								</li>							
+								</li>
+								
 							</ul>
 						</div>
 					</div>
@@ -126,10 +135,13 @@
 			</div>
 		</section>
 		
-	</header>
-	
 	<div>
 		<hr class="m-0">
 	</div>
+			
+	</header>
+	
+
+
 
 	

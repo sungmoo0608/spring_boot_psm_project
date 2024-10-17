@@ -21,27 +21,28 @@
 <meta name="description" content="">
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet">
+
 <link rel="stylesheet" type="text/css" href="css/vendor.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Chilanka&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
-
+	
 	<jsp:include page="/WEB-INF/views/header.jsp" />
 
 	<section id="banner" style="background: #F9F3EC;">
 		<div class="container">
 			<div class="swiper main-swiper">
 				<div class="swiper-wrapper">
-
 
 					<div class="swiper-slide py-5">
 						<div class="row banner-content align-items-center">
@@ -55,7 +56,6 @@
 								</h3>
 								<a href="#" class="btn btn-outline-dark btn-lg fs-6 rounded-1 "> Detail Page </a>
 							</div>
-
 						</div>
 					</div>
 
@@ -125,59 +125,111 @@
 		</div>
 	</section>
 
-	<section id="clothing" class="overflow-hidden" style="background: url('images/background-img.png') no-repeat; background-size: cover">
-		<div class="container pb-5 ">
+	<section id="register" class="overflow-hidden "
+		style="background: url('images/background-img.png') no-repeat; background-size: cover; height:500px">
 
-			<div class="section-header  mb-3">
-				<div class="display-5 fw-normal py-5 text-center">반려 동물을 찾아요.</div>
-			</div>
-
-			<div class="products-carousel swiper">
-				<div class="swiper-wrapper">
-
-					<div class="swiper-slide">
-
-						<div class="card position-relative">
-							<a href="single-product.html"><img src="images/item1.jpg" class="img-fluid rounded-4" alt="image"></a>
-							<div class="card-body p-0">
-								<a href="single-product.html">
-									<h3 class="card-title pt-4 m-0">이름</h3>
-								</a>
-
-								<div class="card-text">
-									<span class="rating secondary-font"> </span>
-
-									<div class="d-flex flex-wrap mt-3">
-										<a href="#" class="btn-cart me-3 px-4 pt-3 pb-3"> 
-											<span>잃어버린 날짜</span><br> 
-											<span>잃어버린 장소</span><br> 
-											<span>품종</span><br>
-											<span>전화번호</span>
-										</a>
-									</div>
-
-								</div>
-							</div>
-						</div>
-					</div>
+		<div class="container">
+			<div class="display-5 fw-normal py-5 text-center">서울시 동물 보호 센터</div>
+		
+			<div class="row justify-content-center">
+				<div class="col-12">
+					<select id="districtSelect" class="form-select mb-3 text-center">
+						<option value="">지역구 선택</option>
+						<option value="강남구">강남구</option>
+						<option value="강동구">강동구</option>
+						<option value="강북구">강북구</option>
+						<option value="강서구">강서구</option>
+						<option value="관악구">관악구</option>
+						<option value="광진구">광진구</option>
+						<option value="구로구">구로구</option>
+						<option value="금천구">금천구</option>
+						<option value="노원구">노원구</option>
+						<option value="도봉구">도봉구</option>
+						<option value="동대문구">동대문구</option>
+						<option value="동작구">동작구</option>
+						<option value="마포구">마포구</option>
+						<option value="서대문구">서대문구</option>
+						<option value="서초구">서초구</option>
+						<option value="성동구">성동구</option>
+						<option value="성북구">성북구</option>
+						<option value="송파구">송파구</option>
+						<option value="양천구">양천구</option>
+						<option value="영등포구">영등포구</option>
+						<option value="용산구">용산구</option>
+						<option value="은평구">은평구</option>
+						<option value="종로구">종로구</option>
+						<option value="중구">중구</option>
+						<option value="중랑구">중랑구</option>
+					</select>
 				</div>
 			</div>
-			<div class="d-flex justify-content-center">
-				<a href="#" class="btn btn-outline-dark btn-lg fs-6 rounded-1"> 더보기 </a>
+
+			<div id="shelterResults" class="row justify-content-center mt-4"
+				style="display: none;">
+				<div class="col-12">
+					<h3 class="text-center mb-3">검색 결과</h3>
+					<ul id="shelterList" class="list-group text-center">
+						<!-- Shelter results will be inserted here -->
+					</ul>
+				</div>
 			</div>
-			<!-- / products-carousel -->
 		</div>
 	</section>
 
-	<section id="register">
-		<div>
-			<div class="display-5 fw-normal py-5 text-center">서울시 동물 보호 센터</div>
-			<img src="images/map2.png" alt="image">
-		</div>
-	</section>
+	<script>
+	  // This is a mock database. In a real application, this data would come from a server.
+	  const shelters = {
+	    '강남구': ['강남 동물 보호센터', '강남 유기견 보호소'],
+	    '강동구': ['강동 애견 보호센터'],
+	    '마포구': ['마포 동물 사랑센터', '마포구 유기동물 보호소'],
+	    // Add more districts and their shelters here
+	  };
+	
+	  document.getElementById('districtSelect').addEventListener('change', function() {
+	    const district = this.value;
+	    const shelterList = document.getElementById('shelterList');
+	    const shelterResults = document.getElementById('shelterResults');
+	    
+	    shelterList.innerHTML = '';
+	    
+	    if (district && shelters[district]) {
+	      shelters[district].forEach(shelter => {
+	        const li = document.createElement('li');
+	        li.className = 'list-group-item';
+	        li.textContent = shelter;
+	        shelterList.appendChild(li);
+	      });
+	      shelterResults.style.display = 'block';
+	    } else {
+	      shelterResults.style.display = 'none';
+	    }
+	  });
+	</script>
+
 
 	<jsp:include page="/WEB-INF/views/footer.jsp" />
+	
+	<script>
+        $(document).ready(function () {
+            const swiper = new Swiper('.main-swiper', {
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                },
+            });
+        });
+    </script>
+    
+ 	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+ 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  	<script src="js/plugins.js"></script>
+  	<script src="js/script.js"></script>
+  	<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
 </body>
+
 </html>
-   

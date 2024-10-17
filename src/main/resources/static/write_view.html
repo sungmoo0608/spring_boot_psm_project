@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="/js/lostDog.js"></script>
+
+<script type="text/javascript">
+
+	$(document).ready(function(){
+
+		$("#insertPet").submit(function(event){
+			event.preventDefault();
+			let desertionNo = $("#desertionNo").val();
+			let processState = $("#processState").val();
+			let kindCd = $("#kindCd").val();
+			let sexCd = $("#sexCd").val();
+			let happenPlace = $("#happenPlace").val();
+			let age = $("#age").val();
+			let careAddr = $("#careAddr").val();
+			let officetel = $("#officetel").val();
+			let specialMark = $("#specialMark").val();
+			let careNm = $("#careNm").val();
+			let popfile = $("#popfile").val();
+			let filename = $("#filename").val();
+			/* let popfile = $("#popfile").prop("files")[0]; */
+			
+			let insert ={
+					processState : processState,
+					kindCd : kindCd,
+					sexCd : sexCd,
+					happenPlace : happenPlace,
+					age : age,
+					careAddr : careAddr,
+					officetel : officetel,
+					specialMark : specialMark,
+					careNm : careNm,
+					popfile : popfile,
+					filename : filename
+			}
+			
+			let pet = lostDog();
+			pet.insert(insert,function(result){
+				console.log(result);
+			});
+			
+		});
+		
+		
+	});
+</script>
+
+</head>
+<body>
+
+	<h1>입양동물 신규등록</h1>
+      <form id="insertPet" action="insert" method="post"> 
+      <input type="hidden" id="desertionNo">
+      	분양 상황 <input id="processState" type="text" name="processState"> <br/>
+      	동물종류 <input id="kindCd" type="text" name="kindCd"><br/>
+      	성별 <input id="sexCd" type="text" name="sexCd"><br/>
+      	발견장소 <input id="happenPlace" type="text" name="happenPlace"><br/>
+      	나이 <input id="age" type="text" name="age"><br/>
+      	보호소 주소 <input id="careAddr" type="text" name="careAddr"><br/>
+      	전화번호 <input id="officetel" type="text" name="officetel"><br/>
+      	특징 <input id="specialMark" type="text" name="specialMark"><br/>
+      	보호소명 <input id="careNm" type="text" name="careNum"><br/>
+      	사진주소 <input id="popfile" type="text" name="popfile"><br/>
+      	썸네일 사진주소 <input id="filename" type="text" name="filename"><br/>
+       <!--  사진 <input id="popfile" type="file" name="popfile"><br/> -->
+      	<input type="submit" value="제출"><br>
+      </form>
+</body>
+</html>

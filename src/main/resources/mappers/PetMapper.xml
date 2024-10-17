@@ -1,12 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="edu.ict.ex.mapper.PetMapper">
-    
-    <select id="getList" resultType="PetVO">
-	    <![CDATA[
-	        select * from pets
-	    ]]>
-    </select>
-    
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.ict.ex.PetMapper.PetMapper">
+	<select id="getList" resultType="edu.ict.ex.vo.PetVO"> <!-- 리스트 -->
+		SELECT * FROM pets3 ORDER BY desertionNo DESC
+	</select>
+	<select id="get" resultType="edu.ict.ex.vo.PetVO"> <!-- 상세정보 -->
+		select * from pets3 where desertionNo = #{desertionNo}
+	</select>
+
+	<update id="modify"> <!-- 수정 -->
+    <![CDATA[
+       UPDATE pets3 SET processState = #{processState}, officetel = #{officetel}, specialMark = #{specialMark} WHERE desertionNo = #{desertionNo}
+    ]]>
+	</update>
+
+	<delete id="remove"> <!-- 삭제 -->
+    <![CDATA[
+        delete from pets3 where desertionNo = #{desertionNo}
+    ]]>
+	</delete>
+
+	<insert id="insert"><!-- 새 글 작성 -->
+    <![CDATA[
+       INSERT INTO pets3 (
+       desertionNo,
+    processState,
+    kindCd,
+    sexCd,
+    happenPlace,
+    age,
+    careAddr,
+    officetel,
+    specialMark,
+    careNm,
+    popfile,
+    filename
+) VALUES( pet_seq.NEXTVAL, #{processState}, #{kindCd}, #{sexCd}, #{happenPlace}, #{age}, #{careAddr},
+ #{officetel}, #{specialMark}, #{careNm}, #{popfile}, #{filename})
+    ]]>
+	</insert>
+
 </mapper>
