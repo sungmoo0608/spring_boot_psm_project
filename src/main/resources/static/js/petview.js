@@ -9,7 +9,7 @@ $(document).ready(function() {
 		$(result).each(function() {
 			htmls += '<div class="col-md-3 col-sm-3">';
 			htmls += '<div class="card shadow-sm mb-3">';
-			htmls += '<a href="/pet_content_view.html?desertionNo=' + this.desertionNo + '"><img src="' + this.filename + '" alt="Image" style="width: 100%; height: 150px;"></a>';
+			htmls += '<a href="/pet/pet_content_view?desertionNo=' + this.desertionNo + '"><img src="' + this.popfile + '" alt="Image" class="img-fluid"></a>';
 			htmls += '<div class="card-body bg-light">';
 			htmls += '<p class="card-text fw-bold">';
 			htmls += '성별: <span class="pet-gender">' + this.sexCd + '</span><br>'; // 성별

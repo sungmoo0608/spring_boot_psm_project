@@ -3,6 +3,9 @@
 
 <head>
 <title>PingPing</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/js/PetBoard.js"></script>
+<script src="/js/qnaanswer.js"></script>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +14,7 @@
 <meta name="author" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
+
 </head>
 
 <link rel="stylesheet"
@@ -179,26 +183,32 @@
 
 
 
-    <div class="container">
-        <h1 class="text-center  mt-5 pb-5  ">답변 작성하기</h1>
-        <form id="questionForm">
-            <div class="form-group pb-5">
-                <label for="title">답변 제목</label>
-                <input type="text" class="form-control" id="title" name="title" required>
-            </div>
-            <div class="form-group pb-5">
-                <label for="content">답변 내용</label>
-                <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block ">답변 제출하기</button>
-          
-        </form>
-    </div>
+   <div class="container">
+    <h1 class="text-center mt-5 pb-5">답변 작성하기</h1>
+    <form id="questionForm" method="post">
+        <div class="form-group pb-5">
+            <input type="hidden" name="bnum" id="bnum">
+            <input type="hidden" name="bgroup" id="bgroup">
+            <input type="hidden" name="bstep" id="bstep">
+            <input type="hidden" name="bindent" id="bindent"> 
+            <label for="title">답변 제목</label>
+            <input type="text" class="form-control" id="btitle" name="btitle" required>
+        </div>
+        <div class="form-group pb-5">
+            <label for="pet_user_id">작성자</label>
+            <input type="text" class="form-control" id="pet_user_id" name="pet_user_id" required>
+        </div>
+        <div class="form-group pb-5">
+            <label for="content">답변 내용</label>
+            <textarea class="form-control" id="bcontent" name="bcontent" rows="5" required></textarea>
+        </div>
+        <input type="submit" class="btn btn-primary btn-block" value="답변 제출하기" />
+    </form>
+</div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
+    <!-- <script>
         document.getElementById('questionForm').addEventListener('submit', function(event) {
             event.preventDefault();
             // 질문 제출 처리 로직을 여기에 추가하세요.
@@ -206,6 +216,6 @@
             // 입력 필드 초기화
             this.reset();
         });
-    </script>
+    </script> -->
 </body>
 </html>

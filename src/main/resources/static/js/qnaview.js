@@ -13,7 +13,16 @@ $(document).ready(function() {
             htmls += '<td><a href="/petboard_content_view.html?bnum=' + this.petboards.bnum + '" class="text-decoration-none">' + this.petboards.btitle + '</a></td>';
             htmls += '<td>' + this.petboards.pet_user_id + '</td>';
             htmls += '<td>' + this.petboards.bdate + '</td>';
-            htmls += '<td><a href="qna_write.html"><span class="badge text-bg-secondary">답글 쓰기</span></a></td>';
+			htmls += '<td>';
+			for (let i = 0; i < this.petboards.bindent; i++) {
+			    htmls += '-';
+			}
+			if (this.petboards.bindent > 0) {
+			    htmls += '<span class="badge text-bg-success">답변완료</span>';
+			} else {
+			    htmls += '<a href="pboard/qna_write.jsp?bnum=' + this.petboards.bnum + '"><span class="badge text-bg-secondary">답글 쓰기</span></a>';
+			}
+			htmls += '</td>';
             htmls += '<td><button class="btn btn-danger btn-sm delete-post" data-id="' + this.petboards.bnum + '">삭제</button></td>';
             htmls += '</tr>'; // 각 행의 끝
         }); // each end

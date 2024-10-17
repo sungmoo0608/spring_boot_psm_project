@@ -58,9 +58,11 @@ $(document).ready(function() {
 	});
     
 	$(document).ready(function() {
+		
 	$(document).on('submit', '#updateboard', function(event) { // 이벤트 위임
+		
 	        event.preventDefault();
-	        let bnum = $("#bnum").text();
+	        let bnum = $("#bnum").val();
 	        let btitle = $("#btitle").val();
 	        let bcontent = $("#bcontent").val();
 
@@ -71,15 +73,19 @@ $(document).ready(function() {
 	        };
 
 	        let board = PetBoard();
-	        board.modify(modify, function(result) {
+	        
+			board.modify(modify, function(result) {
 	            console.log(result); // 응답 확인
-
-	            if (result.success) { // 서버의 성공 여부 확인
-	                let url = '/areview.html';
-	                location.href = url; // URL 변경
-	            } else {
-	                console.error('수정 실패:', result.message);
-	            }
+				 let cateno = parseInt($("#input_hidden").val(), 10);
+				if (cateno === 1) {
+					                location.replace('/notice.html');
+					            } else if (cateno === 2) {
+					                location.replace('/qna.html');
+					            } else if (cateno === 3) {
+					                location.replace('/areview.html');
+					            } else {
+					                console.log("알 수 없는 카테고리 번호입니다.");
+					            }
 	        });
 	    });
 		});

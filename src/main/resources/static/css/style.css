@@ -384,6 +384,22 @@ button.filter-button:hover {
   
 }
 
+
+/* pet-img */
+.pet-img {
+	width : 100%;
+	max-width : 600px;
+	margin: 0 auto;
+}
+
+/* pet-content-view */
+.pet-form {
+	width : 100%;
+	max-width : 800px;
+	margin: 0 auto;
+}
+
+
 /* testimonial style  */
 .testimonial-content {
   color: #908F8D;
@@ -396,8 +412,8 @@ iconify-icon.quote-icon {
 
 
 .form-container {
-	width: 100%;
-	max-width : 480px;
+	width : 100%;
+	max-width : 600px;
 	margin: 0 auto;
 }
 

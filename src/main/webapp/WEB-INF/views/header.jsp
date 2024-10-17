@@ -37,7 +37,7 @@
 			<div class="row pb-0 mb-3 align-items-center ">	
 				<div class="col-sm-12 col-lg-12 text-center">
 					<div class="main-logo">
-						<a href="/"> <img src="images/logo3.jpg" alt="logo" class="img-fluid">
+						<a href="/"> <img src="${pageContext.request.contextPath}/images/logo3.jpg" alt="logo" class="img-fluid">
 						</a>
 					</div>
 				</div>
@@ -45,6 +45,8 @@
 				<div class="col-sm-12 col-lg-12 text-center">
 					<div>
 						<sec:authorize access="isAuthenticated()">
+							<span class="badge rounded-pill text-bg-warning"><sec:authorize access="hasRole('ROLE_USER')">일반회원</sec:authorize></span>
+							<span class="badge rounded-pill text-bg-warning"><sec:authorize access="hasRole('ROLE_ADMIN')">관리자</sec:authorize></span>
 							<span class="badge rounded-pill text-bg-success"><sec:authentication property="principal.username"/>님 환영합니다.</span>
 						</sec:authorize>
 					</div>
@@ -107,7 +109,11 @@
 
 						<div class="offcanvas-body justify-content-center">
 							<ul class="navbar-nav menu-list list-unstyled d-flex gap-md-3 mb-0">
-
+								<sec:authorize access="isAnonymous()">		
+									<li class="nav-item">로그인 하면 메뉴가 활성화 됩니다.</li>
+								</sec:authorize>
+								
+								<sec:authorize access="hasRole('ROLE_ADMIN')">
 								<li class="nav-item"><a href="<c:url value="/pet" />" class="nav-link">입양 대기 동물 관리</a></li>
 
 								<li class="nav-item dropdown">
@@ -121,12 +127,27 @@
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">게시글 관리</a>
 									<ul class="dropdown-menu" aria-labelledby="pages">
-										<li><a href="notice.html" class="dropdown-item">공지 사항</a></li>
-										<li><a href="areview.html" class="dropdown-item">입양 후기</a></li>
-										<li><a href="qna.html" class="dropdown-item">Q & A</a></li>
-										<li><a href="border.html" class="dropdown-item">기타 자료</a></li>
+										<li><a href="<c:url value="/notice" />" class="dropdown-item">공지 사항</a></li>
+										<li><a href="<c:url value="/areview" />" class="dropdown-item">입양 후기</a></li>
+										<li><a href="<c:url value="/qna" />" class="dropdown-item">Q & A</a></li>
 									</ul>
 								</li>
+								</sec:authorize>
+								
+								<sec:authorize access="hasRole('ROLE_USER')">
+								<li class="nav-item"><a href="<c:url value="/hope" />" class="nav-link">입양 할래요</a></li>
+
+								<li class="nav-item"><a href="<c:url value="/ushelter" />" class="nav-link">보호소 방문 예약</a></li>
+								
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">게시판</a>
+									<ul class="dropdown-menu" aria-labelledby="pages">
+										<li><a href="<c:url value="/notice" />" class="dropdown-item">공지 사항</a></li>
+										<li><a href="<c:url value="/areview" />" class="dropdown-item">입양 후기</a></li>
+										<li><a href="<c:url value="/qna" />" class="dropdown-item">Q & A</a></li>
+									</ul>
+								</li>
+								</sec:authorize>
 								
 							</ul>
 						</div>
