@@ -52,8 +52,8 @@ let PetBoard = function() {
 				if (callback) {
 					callback(response);
 				}
-				let url = '/areview.html';
-				           location.href = url; 
+				/* let url = '/pboard/qna';
+				           location.href = url; */
 				
 			},
 			error: function(xhr, status, error) {
@@ -110,7 +110,7 @@ let PetBoard = function() {
 				console.log(response);
 				if (callback) {
 					callback(response);
-					location.replace('/qna.html');
+					location.replace('/pboard/qna');
 				}			
 			},
 			error: function(xhr, status, error) {

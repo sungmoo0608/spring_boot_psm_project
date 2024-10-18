@@ -21,15 +21,14 @@
 <meta name="description" content="">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="/js/PetBoard.js"></script>
-<script src="/js/qnaview.js"></script>
+<script src="${pageContext.request.contextPath}/js/PetBoard.js"></script>
+<script src="${pageContext.request.contextPath}/js/qnaview.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="css/vendor.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
+
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/vendor.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Chilanka&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
@@ -64,7 +63,7 @@
 	
 	
 			<div class="text-center mt-5 mb-5">
-				<a href="<c:url value="/qna_add" />" class="btn btn-primary btn-lg fw-bolder">질문 작성하기</a>
+				<a href="<c:url value="/pboard/qna_add" />" class="btn btn-primary btn-lg fw-bolder">질문 작성하기</a>
 			</div>
 		</div>
 	</section>

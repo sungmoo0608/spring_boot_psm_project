@@ -36,7 +36,7 @@
 
 	<jsp:include page="/WEB-INF/views/header.jsp" />
 	
-	<div class="container">
+	<div class="container mb-5">
 		<div class="form-container">
 			<h2 class="text-center mb-4 pt-3">회원 탈퇴</h2>
 

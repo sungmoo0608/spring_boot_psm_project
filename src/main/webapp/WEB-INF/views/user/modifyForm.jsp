@@ -24,8 +24,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"> </script>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="css/vendor.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/vendor.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Chilanka&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
 
 	<jsp:include page="/WEB-INF/views/header.jsp" />
 	
-	<div class="container">
+	<div class="container mb-5">
 		<div class="form-container">
 			<h2 class="text-center mb-4 pt-3">회원 정보 수정</h2>
 			<div id="errorMessage" class="text-danger"></div>
@@ -86,7 +86,7 @@
 				    <div class="input-group">
 				        <input type="text" name="uemail" id="emailInput" class="form-control" placeholder="이메일을 입력하세요." value="${user.uemail}" required />
 				        <select id="emailDomain" class="form-select" onchange="updateEmail()">
-				   			<option value="">직접 입력</option>
+				   			<option value="">직접 입력 / 도메인 선택</option>
 				            <option value="@naver.com">@naver.com</option>
 				            <option value="@nate.com">@nate.com</option>
 				            <option value="@daum.net">@daum.net</option>
@@ -99,7 +99,7 @@
 				    <span id="uemailMessage"></span>
 				    <div class="invalid-feedback">유효한 이메일 주소를 입력해주세요.</div>
 				</div>
-				                <div class="d-grid gap-2">
+				<div class="">
                     <button class="btn btn-primary" type="submit">수정하기</button>
                     <button class="btn btn-secondary" type="button" onclick="window.location.href='/'">취소</button>
                 </div>
@@ -112,7 +112,7 @@
 	
 
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script src="js/modifyForm.js"></script>
+	<script src="${pageContext.request.contextPath}/js/modifyForm.js"></script>
 
 </body>
 

@@ -119,13 +119,13 @@
 			<div class="display-5 fw-normal">엄마 & 아빠를 찾아요.</div>
 			<div class="row my-5">
 				<div class="col ">
-					<a href="index.html"> <img src="images/logo_final.png" alt="logo" class="logo"></a>
+					<a href="<c:url value="/pet" />"> <img src="images/logo_final.png" alt="logo" class="logo"></a>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section id="register" class="overflow-hidden "
+<%-- 	<section id="register" class="overflow-hidden "
 		style="background: url('images/background-img.png') no-repeat; background-size: cover; height:500px">
 
 		<div class="container">
@@ -174,7 +174,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> --%>
 
 	<script>
 	  // This is a mock database. In a real application, this data would come from a server.

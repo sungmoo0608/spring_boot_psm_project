@@ -20,15 +20,17 @@
 <meta name="keywords" content="">
 <meta name="description" content="">
 
-<script src="/js/PetBoard.js"></script>
-<script src="/js/qnawrite.js"> </script>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="${pageContext.request.contextPath}/js/PetBoard.js"></script>
+<script src="${pageContext.request.contextPath}/js/qnawrite.js"> </script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="css/vendor.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/vendor.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Chilanka&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
@@ -43,7 +45,7 @@
 	
 	<div class="container">
 		<h1 class="text-center mt-5 pb-5">질문 작성하기</h1>
-		<form id="insertPet" action="insert" method="post">
+		<form id="insertPet" method="post">
 			<input type="hidden" id="bnum">
 
 			<div class="form-group pb-5">
@@ -77,9 +79,7 @@
 				onclick="alert('수정하기 기능을 구현하세요.');">수정하기</button>
 		</form>
 	</div>
-	
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 	<style>
 	    /* 기본 select 박스 스타일 */
 	    .form-control {
@@ -101,6 +101,7 @@
 	        padding: 10px; /* 옵션 여백 */
 	    }
 	</style>
+
 	
 	</section>
 

@@ -78,11 +78,11 @@ $(document).ready(function() {
 	            console.log(result); // 응답 확인
 				 let cateno = parseInt($("#input_hidden").val(), 10);
 				if (cateno === 1) {
-					                location.replace('/notice.html');
+					                location.replace('/pboard/notice');
 					            } else if (cateno === 2) {
-					                location.replace('/qna.html');
+					                location.replace('/pboard/qna');
 					            } else if (cateno === 3) {
-					                location.replace('/areview.html');
+					                location.replace('/pboard/areview');
 					            } else {
 					                console.log("알 수 없는 카테고리 번호입니다.");
 					            }

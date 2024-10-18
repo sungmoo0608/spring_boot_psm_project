@@ -32,7 +32,7 @@ let PetHope = function() {
 					if (callback) {
 						callback(response);
 					}
-					let url = '/ushelter.html';
+					let url = '/ushelter';
 					location.replace(url);
 				},
 				error: function(xhr, status, error) {

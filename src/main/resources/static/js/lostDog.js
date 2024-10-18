@@ -48,7 +48,7 @@ let lostDog = function() {
 				if (callback) {
 					callback(response);
 				}
-				let url = '/pet.html';
+				let url = '/pet';
 				location.replace(url);
 			},
 			error: function(xhr, status, error) {

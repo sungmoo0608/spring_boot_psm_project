@@ -46,7 +46,7 @@ $(document).ready(function() {
                         <div class="card-body" style="background-color: #f8f9fa;">
                             <h5 class="card-title">희망자 번호: ${this.petHopeVO.hopeno}</h5>
                             <p class="card-text">유기 동물 번호: 
-                                <a href="/pet_content_view.html?desertionNo=${this.petHopeVO.desertionNo}">
+                                <a href="/pet/pet_content_view?desertionNo=${this.petHopeVO.desertionNo}">
                                     ${this.petHopeVO.desertionNo}
                                 </a>
                             </p>

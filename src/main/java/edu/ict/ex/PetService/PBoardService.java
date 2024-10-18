@@ -19,8 +19,14 @@ public class PBoardService {
 	}
 
 	public PetBoardsVO getFindById(int bnum) {
-		// TODO Auto-generated method stub
+
+		PetBoardsVO petBoardsVO = new PetBoardsVO();
+			      
+		petBoardsVO.setBnum(bnum);
+		pBoardMapper.updateHit(petBoardsVO);
+		
 		return pBoardMapper.getFindById(bnum);
+		
 	}
 
 	public int modify(PetBoardsVO petBoardsVO) {

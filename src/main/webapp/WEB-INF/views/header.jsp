@@ -89,9 +89,9 @@
 								<iconify-icon icon="healthicons:person" class="fs-4"></iconify-icon>
 								</a></li>
 								
-								<li><a href="wishlist.html" class="mx-3"> 
+<!-- 								<li><a href="wishlist.html" class="mx-3"> 
 								<iconify-icon icon="mdi:heart" class="fs-4"></iconify-icon>
-								</a></li>
+								</a></li> -->
 							</sec:authorize>
 							
 						</ul>
@@ -116,35 +116,31 @@
 								<sec:authorize access="hasRole('ROLE_ADMIN')">
 								<li class="nav-item"><a href="<c:url value="/pet" />" class="nav-link">입양 대기 동물 관리</a></li>
 
-								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">회원 관리</a>
-									<ul class="dropdown-menu" aria-labelledby="pages">
-										<li><a href="<c:url value="/hope" />" class="dropdown-item">입양 회원 정보 관리</a></li>
-										<li><a href="<c:url value="/ushelter" />" class="dropdown-item">입양 대기소 방문 예약 관리</a></li>
-									</ul>
-								</li>
+
+								<li class="nav-item"><a href="<c:url value="/ushelter" />" class="nav-link">입양 대기소 방문 예약 관리</a></li>
+
 								
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">게시글 관리</a>
 									<ul class="dropdown-menu" aria-labelledby="pages">
-										<li><a href="<c:url value="/notice" />" class="dropdown-item">공지 사항</a></li>
-										<li><a href="<c:url value="/areview" />" class="dropdown-item">입양 후기</a></li>
-										<li><a href="<c:url value="/qna" />" class="dropdown-item">Q & A</a></li>
+										<li><a href="<c:url value="/pboard/notice" />" class="dropdown-item">공지 사항</a></li>
+										<li><a href="<c:url value="/pboard/areview" />" class="dropdown-item">입양 후기</a></li>
+										<li><a href="<c:url value="/pboard/qna" />" class="dropdown-item">Q & A</a></li>
 									</ul>
 								</li>
 								</sec:authorize>
 								
 								<sec:authorize access="hasRole('ROLE_USER')">
-								<li class="nav-item"><a href="<c:url value="/hope" />" class="nav-link">입양 할래요</a></li>
+								<li class="nav-item"><a href="<c:url value="/pet" />" class="nav-link">입양 할래요</a></li>
 
 								<li class="nav-item"><a href="<c:url value="/ushelter" />" class="nav-link">보호소 방문 예약</a></li>
 								
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">게시판</a>
 									<ul class="dropdown-menu" aria-labelledby="pages">
-										<li><a href="<c:url value="/notice" />" class="dropdown-item">공지 사항</a></li>
-										<li><a href="<c:url value="/areview" />" class="dropdown-item">입양 후기</a></li>
-										<li><a href="<c:url value="/qna" />" class="dropdown-item">Q & A</a></li>
+										<li><a href="<c:url value="/pboard/notice" />" class="dropdown-item">공지 사항</a></li>
+										<li><a href="<c:url value="/pboard/areview" />" class="dropdown-item">입양 후기</a></li>
+										<li><a href="<c:url value="/pboard/qna" />" class="dropdown-item">Q & A</a></li>
 									</ul>
 								</li>
 								</sec:authorize>

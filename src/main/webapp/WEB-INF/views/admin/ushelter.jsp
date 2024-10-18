@@ -20,6 +20,7 @@
 <meta name="description" content="">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script src="${pageContext.request.contextPath}/js/PetHope.js"></script>
 <script src="${pageContext.request.contextPath}/js/PetHopeList.js"> </script>
 
@@ -52,17 +53,18 @@
 						</div>
 						<div class="card-body">
 							<form id="reservationForm">
+								<input type="hidden" name="userid" value="${user.userid}"/>
 								<div class="mb-5">
-									<label for="visitorName" class="form-label">이름</label> <input
-										type="text" class="form-control" id="pet_user_id" required>
+									<label for="visitorName" class="form-label">이름</label> 
+									<input type="text" name="userid" class="form-control" id="pet_user_id" value="${user.userid}" required>
 								</div>
 								<div class="mb-5">
-									<label for="visitorPhone" class="form-label">동물번호</label> <input
-										type="tel" class="form-control" id="desertionNo" required>
+									<label for="visitorPhone" class="form-label">동물번호</label>
+									<input type="tel" class="form-control" id="desertionNo" required>
 								</div>
 								<div class="mb-5">
-									<label for="visitDate" class="form-label">방문 날짜</label> <input
-										id="hdate" type="datetime-local" name="hdate" required>
+									<label for="visitDate" class="form-label">방문 날짜</label> 
+									<input id="hdate" type="datetime-local" name="hdate" required>
 								</div>
 								<input type="submit" class="btn btn-primary" value="제출">
 							</form>
@@ -70,6 +72,8 @@
 
 					</div>
 				</div>
+				
+				
 				<div class="col-md-6 mb-4">
 					<div class="card">
 						<div class="card-header">
@@ -77,8 +81,17 @@
 								<i class="fas fa-calendar-check me-2"></i>현재 예약 상태
 							</h4>
 						</div>
-						<div class="card-body" >
-							
+						
+						<sec:authorize access="hasRole('ROLE_USER')">
+						<div class="card-body" >							
+							<div class="rounded p-1 mb-2 bg-danger text-light text-center">
+								<p class="m-0 p-0">관리자 모드에서만 지원합니다.</p>
+							</div>	
+						</div>
+						</sec:authorize>
+						
+						<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<div class="card-body" >							
 							<div id="reservationList" class="row">
 								<!-- 예약 카드가 동적으로 추가됩니다. -->
 							</div>
@@ -86,8 +99,12 @@
 								<p>현재 예약이 없습니다.</p>
 							</div>
 						</div>
+						</sec:authorize>
+						
 					</div>
 				</div>
+				
+				
 			</div>
 		</div>
 	</section>
@@ -171,7 +188,6 @@
 	<jsp:include page="/WEB-INF/views/footer.jsp" />
 
 	<!-- 몰라용 -->
-	<script src="js/jquery-1.11.0.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="${pageContext.request.contextPath}/js/plugins.js"></script>

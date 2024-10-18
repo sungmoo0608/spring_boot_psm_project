@@ -10,7 +10,7 @@ $(document).ready(function() {
         $(result).each(function() {
             htmls += '<tr>';
             htmls += '<th scope="row">' + this.petboards.bnum + '</th>';
-            htmls += '<td><a href="/petboard_content_view.html?bnum=' + this.petboards.bnum + '" class="text-decoration-none">' + this.petboards.btitle + '</a></td>';
+            htmls += '<td><a href="/pboard/petboard_content_view?bnum=' + this.petboards.bnum + '" class="text-decoration-none">' + this.petboards.btitle + '</a></td>';
             htmls += '<td>' + this.petboards.pet_user_id + '</td>';
             htmls += '<td>' + this.petboards.bdate + '</td>';
 			htmls += '<td>';
@@ -20,7 +20,7 @@ $(document).ready(function() {
 			if (this.petboards.bindent > 0) {
 			    htmls += '<span class="badge text-bg-success">답변완료</span>';
 			} else {
-			    htmls += '<a href="pboard/qna_write.jsp?bnum=' + this.petboards.bnum + '"><span class="badge text-bg-secondary">답글 쓰기</span></a>';
+			    htmls += '<a href="/pboard/qna_write?bnum=' + this.petboards.bnum + '"><span class="badge text-bg-secondary">답글 쓰기</span></a>';
 			}
 			htmls += '</td>';
             htmls += '<td><button class="btn btn-danger btn-sm delete-post" data-id="' + this.petboards.bnum + '">삭제</button></td>';

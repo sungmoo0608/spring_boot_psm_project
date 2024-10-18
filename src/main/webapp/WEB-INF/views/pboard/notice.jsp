@@ -20,7 +20,7 @@
 <meta name="keywords" content="">
 <meta name="description" content="">
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -37,8 +37,7 @@
 	<jsp:include page="/WEB-INF/views/header.jsp" />
 	
 	<section clas>
-      <div class="card-body"
-         style="background-color: rgb(234, 245, 220); border-radius: 15px; padding: 20px;">
+      <div class="card-body" style="background-color: rgb(234, 245, 220); border-radius: 15px; padding: 20px;">
 
          <div class="container mt-4">
             <h1 class="mb-4 text-center fw-bolder">공지사항</h1>
@@ -51,8 +50,8 @@
                      <div class="row justify-content-center">
                         <div class="col-md-6">
                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="Search" style="border-color: black;">
-                              <button class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i>
+                              <input type="text" class="form-control" placeholder="Search">
+                              <button class="btn btn-outline-secondary" type="button">검색
                               </button>
                            </div>
                         </div>
@@ -62,56 +61,72 @@
             </div>
          </div>
 
-         <div class="list-group" style="border: 1px solid black">
+         <div class="list-group mb-3">
             
 			<div class="d-flex w-100 justify-content-between">
-                  <a href="<c:url value="/notice1" />" class="list-group-item list-group-item-action notice-item"><h5 class="mb-1 fw-bolder">핑핑 직원들을 소개합니다.</h5></a>
-			</div>
-			<p class="mb-1">
-				성장을 함께하는 핑핑 직원들!
+				<a href="<c:url value="/pboard/notice1" />" class="list-group-item list-group-item-action notice-item">
+					<h5 class="mb-1 fw-bolder">핑핑 직원들을 소개합니다.</h5>
+					<p class="mb-1"> 성장을 함께하는 핑핑 직원들!</p>
+				</a>
+				
+				<sec:authorize access="hasRole('ROLE_ADMIN')">
 				<!-- 삭제할 항목 -->
 				<button class="btn btn-danger btn-sm float-end" onclick="deleteItem()">삭제</button> 
-			</p>
+				</sec:authorize>		
+				
+			</div>
+
 			
 		</div>
 
-		<div class="list-group" style="border: 1px solid black">
+		<div class="list-group mb-3">
             
 			<div class="d-flex w-100 justify-content-between">
-           		<a href="<c:url value="/notice2" />" class="list-group-item list-group-item-action notice-item"><h5 class="mb-1 fw-bolder">새로운 가족을 맞이할 준비 되셨나요?</h5></a>
+           		<a href="<c:url value="/pboard/notice2" />" class="list-group-item list-group-item-action notice-item">
+	           		<h5 class="mb-1 fw-bolder">새로운 가족을 맞이할 준비 되셨나요?</h5>
+	           		<p class="mb-1"> 가을 이벤트로 여러분을 찾아갑니다!</p>
+           		</a>
+           		
+           		<sec:authorize access="hasRole('ROLE_ADMIN')">
+           		<!-- 삭제할 항목 -->
+           		<button class="btn btn-danger btn-sm float-end" onclick="deleteItem()">삭제</button>
+           		</sec:authorize>
 			</div>
-			<p class="mb-1"> 가을 이벤트로 여러분을 찾아갑니다!
-				<!-- 삭제할 항목 -->
-				<button class="btn btn-danger btn-sm float-end" onclick="deleteItem()">삭제</button>
-			</p>
+			
 		</div>
 
 
-		<div class="list-group" style="border: 1px solid black">
+		<div class="list-group mb-3">
 			
 			<div class="d-flex w-100 justify-content-between">
-				<a href="<c:url value="/notice3" />" class="list-group-item list-group-item-action notice-item"><h5 class="mb-1 fw-bolder">입양 절차 과정에 대해서 알려드립니다!</h5></a>
-			</div>
-			<p class="mb-1">
-				귀여운 동물들과 새로운 엄마 & 아빠와의 만남!
+				<a href="<c:url value="/pboard/notice3" />" class="list-group-item list-group-item-action notice-item">
+					<h5 class="mb-1 fw-bolder">입양 절차 과정에 대해서 알려드립니다!</h5>
+					<p class="mb-1"> 귀여운 동물들과 새로운 엄마 & 아빠와의 만남!</p>
+				</a>
+				
+				<sec:authorize access="hasRole('ROLE_ADMIN')">
 				<!-- 삭제할 항목 -->
-				<button class="btn btn-danger btn-sm float-end" onclick="deleteItem()">삭제</button>
-			</p>
+				<button class="btn btn-danger btn-sm float-end" onclick="deleteItem()">삭제</button>	
+				</sec:authorize>		
+			</div>
+
          </div>
 
 
-         <div class="list-group" style="border: 1px solid black">
+		<div class="list-group mb-3">
            
 			<div class="d-flex w-100 justify-content-between">
-				<a href="<c:url value="/notice4" />" class="list-group-item list-group-item-action notice-item"><h5 class="mb-1 fw-bolder">정기적인 건강 Check!</h5></a>
-			</div>
-			
-			<p class="mb-1">
-				핑핑 직원들이 아낌없이 보살펴주는 동물들의 생명 지킴이
+				<a href="<c:url value="/pboard/notice4" />" class="list-group-item list-group-item-action notice-item">
+					<h5 class="mb-1 fw-bolder">정기적인 건강 Check!</h5>
+					<p class="mb-1">핑핑 직원들이 아낌없이 보살펴주는 동물들의 생명 지킴이</p>
+				</a>
+				<sec:authorize access="hasRole('ROLE_ADMIN')">
 				<!-- 삭제할 항목 -->
 				<button class="btn btn-danger btn-sm float-end" onclick="deleteItem()">삭제</button>
-               </p>
+				</sec:authorize>
 			</div>
+				
+		</div>
          
 		</div>
    </section>

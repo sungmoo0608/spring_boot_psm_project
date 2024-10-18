@@ -12,7 +12,7 @@ $(document).ready(function() {
             htmls += '<div class="col-md-4 mb-4">';
             htmls += '<div class="card h-100">';
             htmls += '<div class="card-body" style="background-color: white; border-radius: 15px; padding: 20px;">';
-			htmls += '<h5 class="card-title fw-bolder">' + '<a href="/petboard_content_view.html?bnum=' + this.petboards.bnum + '" class="text-decoration-none">' +  this.petboards.btitle +  '</a>' + '</h5>';
+			htmls += '<h5 class="card-title fw-bolder">' + '<a href="/pboard/petboard_content_view?bnum=' + this.petboards.bnum + '" class="text-decoration-none">' +  this.petboards.btitle +  '</a>' + '</h5>';
 			 htmls += '<p class="card-text">' + this.petboards.bcontent + '</p>';
             htmls += '<p class="card-text"><small class="text-muted">작성자 : ' + this.petboards.pet_user_id + 
                      ' | 날짜 : ' + this.petboards.bdate + 

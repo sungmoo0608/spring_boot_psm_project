@@ -20,16 +20,17 @@
 <meta name="description" content="">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="/js/lostDog.js"></script>
-<script src="/js/petview.js"></script>
+<script src="${pageContext.request.contextPath}/js/lostDog.js"></script>
+<script src="${pageContext.request.contextPath}/js/petview.js"></script>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="css/vendor.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/vendor.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Chilanka&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+ 
 </head>
 
 <body>
@@ -43,6 +44,7 @@
 		<h1 class="text-center fw-bold py-5">입양 대기 동물 관리</h1>	
 		<div class="container">	
 			<div id="list-table" class="row">
+				
 				    <!-- 데이터가 여기에 추가됩니다 -->
 			</div>	
 		</div>

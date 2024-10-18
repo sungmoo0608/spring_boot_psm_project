@@ -20,11 +20,11 @@ $(document).ready(function(){
 	        petboard.insert(insert, function(result){
 	            console.log(result);
 	            if (cate_no === 1) {
-	                location.replace('/notice.html');
+	                location.replace('/pboard/notice');
 	            } else if (cate_no === 2) {
-	                location.replace('/qna.html');
+	                location.replace('/pboard/qna');
 	            } else if (cate_no === 3) {
-	                location.replace('/areview.html');
+	                location.replace('/pboard/areview');
 	            } else {
 	                console.log("알 수 없는 카테고리 번호입니다.");
 	            }

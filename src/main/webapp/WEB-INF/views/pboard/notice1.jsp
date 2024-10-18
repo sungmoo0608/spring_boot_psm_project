@@ -20,12 +20,12 @@
 <meta name="keywords" content="">
 <meta name="description" content="">
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="css/vendor.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/vendor.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Chilanka&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
@@ -80,32 +80,39 @@
 							</img></td>
 					</tr>
 				</table>
+			
 			</div>
+			
+			<div class="text-center mt-4">
+    			<a href="<c:url value="/pboard/notice" />"><button class="btn btn-secondary">이전으로 돌아가기</button></a>
+			</div>
+			
 		</div>
 
-		<div class="text-center mt-4">
-   		 <a href="<c:url value="/notice" />"><button class="btn btn-secondary">이전으로 돌아가기</button></a>
-		</div>
-
-
-
-		<h3 class="mb-3">댓글</h3>
+		<div><h3 class="rounded p-1 mb-3 bg-dark text-light text-center">댓글</h3></div>
+		
 		<div id="comments">
 			<div class="comment">
 				<p>
 					<strong>이름</strong> - 작성 	날짜 :
 				</p>
 				<p>테스트 결과 재밌네요!</p>
+				
+				<sec:authorize access="hasRole('ROLE_ADMIN')">
 				<button class="btn btn-danger btn-sm float-end delete-comment">삭제</button>
-				</p>
+				</sec:authorize>
+				
 			</div>
 			<div class="comment">
 				<p>
 					<strong>이름</strong> - 작성 날짜 :
 				</p>
 				<p>핑테스트 유행인가봐요 ㅎㅎ</p>
+				
+				<sec:authorize access="hasRole('ROLE_ADMIN')">
 				<button class="btn btn-danger btn-sm float-end delete-comment">삭제</button>
-				</p>
+				</sec:authorize>
+				
 			</div>
 		</div>
 

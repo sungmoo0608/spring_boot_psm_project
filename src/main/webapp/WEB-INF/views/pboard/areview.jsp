@@ -20,7 +20,7 @@
 <meta name="keywords" content="">
 <meta name="description" content="">
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script src="${pageContext.request.contextPath}/js/PetBoard.js"></script>
 <script src="${pageContext.request.contextPath}/js/areview.js"></script>
@@ -58,7 +58,7 @@
 		</div>
 		
 		<div class="text-center mt-5 mb-5">
-			<a href="<c:url value="/areview_write" />" class="btn btn-primary btn-lg fw-bolder">입양 후기 작성하기</a>
+			<a href="<c:url value="/pboard/qna_add" />" class="btn btn-primary btn-lg fw-bolder">입양 후기 작성하기</a>
 		</div>
 		
 	</div>

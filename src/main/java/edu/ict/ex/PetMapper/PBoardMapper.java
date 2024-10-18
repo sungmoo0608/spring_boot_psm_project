@@ -18,4 +18,6 @@ public interface PBoardMapper {
 	public int insert(PetBoardsVO petBoardsVO);
 
 	public int remove(int bnum);
+	
+	public void updateHit(PetBoardsVO petBoardsVO);
 }

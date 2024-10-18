@@ -58,7 +58,7 @@ ORDER BY
 	</update>
 	 <insert id="insert">
 	 <![CDATA[ INSERT INTO PET_BOARDS (bnum, btitle, bcontent, bhit, bstep, bindent, bgroup, bdate, pet_user_id, cate_no) 
-VALUES (bnum_seq.NEXTVAL,#{btitle},#{bcontent},10, 0, 0, 1, SYSDATE, #{pet_user_id}, #{cate_no} )
+VALUES (bnum_seq.NEXTVAL,#{btitle},#{bcontent},0, 0, 0, 1, SYSDATE, #{pet_user_id}, #{cate_no} )
 		]]> 
 	</insert>
 	
@@ -67,4 +67,8 @@ VALUES (bnum_seq.NEXTVAL,#{btitle},#{bcontent},10, 0, 0, 1, SYSDATE, #{pet_user_
 		delete from PET_BOARDS where bnum = #{bnum}
 	]]> 
 	</delete> 
+	
+	<update id="updateHit">
+      UPDATE PET_BOARDS SET BHIT = BHIT + 1 WHERE bnum = #{bnum}
+	</update>
 </mapper>

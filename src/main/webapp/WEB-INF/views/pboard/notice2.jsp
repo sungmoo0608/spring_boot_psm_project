@@ -20,12 +20,12 @@
 <meta name="keywords" content="">
 <meta name="description" content="">
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="css/vendor.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/vendor.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Chilanka&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
@@ -48,36 +48,46 @@
 				<h6 class="card-subtitle mb-2 text-muted">작성일: {}</h6>
 							<hr>
 				<h3 class="card-text text-center">Fall Event</h3>
-				<br>
 
-				<img alt="이미지" src="https://cdn.imweb.me/upload/S20200605d0b93b390db0f/5879c60dc4dbd.png">
-
-
+				<div class="container">
+					<div class="rounded p-1 mb-2 bg-danger text-light text-center">
+						<p class="m-0 p-0">Fall Event 샘플 이미지 입니다.</p>
+					</div>
+					<div>
+						<img class="img-fluid" alt="이미지" src="https://cdn.imweb.me/upload/S20200605d0b93b390db0f/5879c60dc4dbd.png">
+					</div>
+				</div>
 			</div>
+			<div class="text-center mt-4">
+    			<a href="<c:url value="/pboard/notice" />"><button class="btn btn-secondary">이전으로 돌아가기</button></a>
+			</div>
+
 		</div>
 		
-		<div class="text-center mt-4">
-    <a href="<c:url value="/notice" />"><button class="btn btn-secondary">이전으로 돌아가기</button></a>
-	</div>
-		
-
-		<h3 class="mb-3">댓글</h3>
+	<div><h3 class="rounded p-1 mb-3 bg-dark text-light text-center">댓글</h3></div>
+	
 		<div id="comments">
 			<div class="comment">
 				<p>
 					<strong>이름</strong> - 작성날짜:
 				</p>
 				<p>가을 이벤트 혹시 끝났나요?!!</p>
-				<button class="btn btn-danger btn-sm float-end delete-comment">삭제</button>
-				</p>
+				
+				<sec:authorize access="hasRole('ROLE_ADMIN')">
+					<button class="btn btn-danger btn-sm float-end delete-comment">삭제</button>
+				</sec:authorize>
+
 			</div>
 			<div class="comment">
 				<p>
 					<strong>이름</strong> - 작성날짜:
 				</p>
 				<p>좋은 정보네요!</p>
-				<button class="btn btn-danger btn-sm float-end delete-comment">삭제</button>
-				</p>
+				
+				<sec:authorize access="hasRole('ROLE_ADMIN')">
+					<button class="btn btn-danger btn-sm float-end delete-comment">삭제</button>
+				</sec:authorize>
+				
 			</div>
 		</div>
 
