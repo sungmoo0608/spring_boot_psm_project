@@ -43,27 +43,12 @@
 	
 	<section>
 	
-	<div class="container">
-		<h1 class="text-center mt-5 pb-5">질문 작성하기</h1>
+	<div class="container mb-5">
+		<div class="form-container">
+		<h1 class="text-center mt-5 pb-5">작성하기</h1>
 		<form id="insertPet" method="post">
 			<input type="hidden" id="bnum">
-
-			<div class="form-group pb-5">
-				<label for="btitle">질문 제목</label> <input type="text"
-					class="form-control" id="btitle" name="btitle" required>
-			</div>
-
-			<div class="form-group pb-5">
-				<label for="pet_user_id">작성자 ID</label> <input type="text"
-					class="form-control" id="pet_user_id" name="pet_user_id" required>
-			</div>
-
-			<div class="form-group pb-5">
-				<label for="bcontent">질문 내용</label>
-				<textarea class="form-control" id="bcontent" name="bcontent"
-					rows="5" required></textarea>
-			</div>
-
+			
 			<div class="form-group pb-5">
 				<label for="cate_no" class="form-label">카테고리</label> <select
 					id="cate_no" class="form-control" name="category" required>
@@ -73,11 +58,30 @@
 				</select>
 			</div>
 
-			<input type="submit" class="btn btn-primary btn-block"
-				value="질문 제출하기">
-			<button type="button" class="btn btn-dark btn-block"
-				onclick="alert('수정하기 기능을 구현하세요.');">수정하기</button>
+			<div class="form-group pb-5">
+				<label for="btitle">제목</label> <input type="text"
+					class="form-control" id="btitle" name="btitle" required>
+			</div>
+
+			<div class="form-group pb-5">
+				<label for="userid">작성자 ID</label> <input type="text"
+					class="form-control" id="userid" name="userid" required>
+			</div>
+
+			<div class="form-group pb-5">
+				<label for="bcontent">내용</label>
+				<textarea class="form-control" id="bcontent" name="bcontent"
+					rows="5" required></textarea>
+			</div>
+
+
+
+	        <div class="d-grid gap-2">
+	        	<button class="btn btn-primary" type="submit">제출하기</button>
+	        	<button type="button" class="btn btn-dark btn-block" onclick="alert('수정하기 기능을 구현하세요.');">수정하기</button>
+	        </div>
 		</form>
+		</div>
 	</div>
 
 	<style>

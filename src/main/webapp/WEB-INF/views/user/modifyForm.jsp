@@ -48,7 +48,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">비밀번호</label>
-                    <input type="password" name="password" class="form-control" placeholder="새 비밀번호 (변경할 경우만 입력)" value="${user.userid}"required minlength="6" />
+                    <input type="password" name="password" class="form-control" placeholder="새 비밀번호 (변경할 경우만 입력)" required minlength="6" />
                     <div class="invalid-feedback">비밀번호는 최소 6자 이상이어야 합니다.</div>
                 </div>
                 <div class="mb-3">
@@ -99,7 +99,7 @@
 				    <span id="uemailMessage"></span>
 				    <div class="invalid-feedback">유효한 이메일 주소를 입력해주세요.</div>
 				</div>
-				<div class="">
+				<div class="d-grid gap-2">
                     <button class="btn btn-primary" type="submit">수정하기</button>
                     <button class="btn btn-secondary" type="button" onclick="window.location.href='/'">취소</button>
                 </div>

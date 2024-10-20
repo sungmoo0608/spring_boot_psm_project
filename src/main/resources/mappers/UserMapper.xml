@@ -3,12 +3,58 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.ict.ex.umapper.UserMapper">
 
-	<resultMap id="authMap" type="AuthVO">
+	<resultMap id="authMap" type="edu.ict.ex.uvo.AuthVO">
 		<result property="userid" column="userid"/>
 		<result property="authority" column="authority"/>
 	</resultMap>
+
+	<resultMap id="petHopeMap" type="edu.ict.ex.vo.PetHopeVO">
+		<result property="hopeno" column="hopeno"/>
+		<result property="desertionNo" column="desertionNo"/>
+		<result property="hdate" column="hdate"/>
+		<result property="userid" column="userid"/>
+	</resultMap>
+
+	<resultMap id="petBoardsMap" type="edu.ict.ex.vo.PetBoardsVO">
+		<result property="bnum" column="bnum"/>
+		<result property="btitle" column="btitle"/>
+		<result property="bcontent" column="bcontent"/>
+		<result property="bhit" column="bhit"/>
+		<result property="bstep" column="bstep"/>
+		<result property="bindent" column="bindent"/>
+		<result property="bgroup" column="bgroup"/>
+		<result property="bdate" column="bdate"/>
+		<result property="userid" column="userid"/>
+		<result property="cate_no" column="cate_no"/>								
+	</resultMap>
 	
-	<resultMap id="userMap" type="UserVO">
+	<resultMap id="petMap" type="edu.ict.ex.vo.PetVO">
+		<result property="desertionNo" column="desertionNo"/>
+		<result property="filename" column="filename"/>
+		<result property="happenDt" column="happenDt"/>
+		<result property="happenPlace" column="happenPlace"/>
+		<result property="kindCd" column="kindCd"/>
+		<result property="colorCd" column="colorCd"/>
+		<result property="age" column="age"/>
+		<result property="weight" column="weight"/>
+		<result property="noticeNo" column="noticeNo"/>
+		<result property="noticeSdt" column="noticeSdt"/>
+		<result property="noticeEdt" column="noticeEdt"/>
+		<result property="popfile" column="popfile"/>
+		<result property="processState" column="processState"/>
+		<result property="sexCd" column="sexCd"/>
+		<result property="neuterYn" column="neuterYn"/>
+		<result property="specialMark" column="specialMark"/>
+		<result property="careNm" column="careNm"/>
+		<result property="careTel" column="careTel"/>
+		<result property="careAddr" column="careAddr"/>
+		<result property="orgNm" column="orgNm"/>
+		<result property="chargeNm" column="chargeNm"/>
+		<result property="officetel" column="officetel"/>									
+	</resultMap>
+	
+	
+	<resultMap id="userMap" type="edu.ict.ex.uvo.UserVO">
 		<result property="userid" column="userid"/>
 		<result property="password" column="password"/>
 		<result property="uname" column="uname"/>
@@ -19,13 +65,45 @@
 		<result property="uemail" column="uemail"/>
 		<result property="enabled" column="enabled"/>
 		<association property="authList" resultMap="authMap"></association>
+		<association property="petHopeList" resultMap="petHopeMap"></association>
+	</resultMap>
+	
+	
+	<resultMap id="userBoardMap" type="edu.ict.ex.uvo.UserVO">
+		<result property="userid" column="userid"/>
+		<result property="password" column="password"/>
+		<result property="uname" column="uname"/>
+		<result property="utel" column="utel"/>
+		<result property="zipcode" column="zipcode"/>
+		<result property="uadr" column="uadr"/>
+		<result property="uadrdetail" column="uadrdetail"/>
+		<result property="uemail" column="uemail"/>
+		<result property="enabled" column="enabled"/>
+		<association property="authList" resultMap="authMap"></association>
+		<association property="userBoardList" resultMap="petBoardsMap"></association>
 	</resultMap>
 	
 	<select id="getUser" resultMap="userMap">
        <![CDATA[
-          select * from users, authorities 
-          where users.userid = authorities.userid 
-          and users.userid  = #{userid}
+		    SELECT *
+        	FROM 
+            users JOIN 
+            authorities ON users.userid = authorities.userid
+        	LEFT JOIN 
+            hopelist ON users.userid = hopelist.userid
+        	WHERE users.userid = #{userid}
+        ]]>
+	</select>
+	
+	<select id="getUserBoard" resultMap="userBoardMap">
+       <![CDATA[
+		    SELECT *
+        	FROM 
+            users JOIN 
+            authorities ON users.userid = authorities.userid
+        	LEFT JOIN 
+            pet_boards ON users.userid = pet_boards.userid
+        	WHERE users.userid = #{userid}
         ]]>
 	</select>
 	

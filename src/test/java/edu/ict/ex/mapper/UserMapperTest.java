@@ -45,14 +45,14 @@ class UserMapperTest {
 	void testInsertUser() {
 		
 		UserVO user = new UserVO();
-		user.setUserid("DDDDDD");
-		user.setPassword(passwordEncoder.encode("DDDDDD"));
+		user.setUserid("CCCCCC");
+		user.setPassword(passwordEncoder.encode("CCCCCC"));
 		user.setUname("홍길동");
-		user.setUtel("010-4444-2244");
+		user.setUtel("010-2864-2244");
 		user.setZipcode("04794");
 		user.setUadr("서울시 성동구 아차산로 113");
 		user.setUadrdetail("2층 한국ICT인재개발원 성수센터");
-		user.setUemail("DDDDDD@ict.com");
+		user.setUemail("CCCCCC@ict.com");
 		user.setEnabled("1");
 		
 		userMapper.insertUser(user);

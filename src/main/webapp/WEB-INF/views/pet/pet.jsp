@@ -20,6 +20,7 @@
 <meta name="description" content="">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script src="${pageContext.request.contextPath}/js/lostDog.js"></script>
 <script src="${pageContext.request.contextPath}/js/petview.js"></script>
 
@@ -43,10 +44,13 @@
 	
 		<h1 class="text-center fw-bold py-5">입양 대기 동물 관리</h1>	
 		<div class="container">	
+		
 			<div id="list-table" class="row">
 				
-				    <!-- 데이터가 여기에 추가됩니다 -->
-			</div>	
+				    <!-- 데이터가 여기에 추가됩니다 -->	   
+					   
+			</div>
+		    		       
 		</div>
 	</section>
 
@@ -54,13 +58,12 @@
 	<jsp:include page="/WEB-INF/views/footer.jsp" />
 
    <!-- 몰라용 -->
-   <script src="js/jquery-1.11.0.min.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-   <script src="js/plugins.js"></script>
-   <script src="js/script.js"></script>
-   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-   
+	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/plugins.js"></script>
+	<script src="${pageContext.request.contextPath}/js/script.js"></script>
+	<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    
 </body>
 
 </html>

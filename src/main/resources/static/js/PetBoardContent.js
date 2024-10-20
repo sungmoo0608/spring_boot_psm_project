@@ -40,7 +40,7 @@ $(document).ready(function() {
                         
                         <label for="bcontent" class="mt-3">내용</label>
                         <textarea id="bcontent" class="form-control" rows="4">${petboards.bcontent}</textarea>
-                        <p class="card-text mt-3">작성자: ${petboards.pet_user_id}</p>
+                        <p class="card-text mt-3">작성자: ${petboards.userid}</p>
                         <p class="card-text mt-3">조회수: ${petboards.bhit}</p>
                         <p class="card-text">카테고리: ${h1Text}</p>
                         <input type="submit" id="modifyButton" class="btn btn-primary mt-3" value="수정">

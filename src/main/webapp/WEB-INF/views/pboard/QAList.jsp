@@ -41,7 +41,7 @@ function listCallback(result) {
 		htmls += '<td>' + this.petboards.bcontent + '</td>';
 		htmls += '<td>' + this.petboards.bhit + '</td>'; 
 		htmls += '<td>' + this.petboards.bdate + '</td>'; 
-		htmls += '<td>' + this.petboards.pet_user_id + '</td>'; 
+		htmls += '<td>' + this.petboards.userid + '</td>'; 
 		htmls += '<td>'+ '<input id=' + this.petboards.bnum + " type='button' class='btn_delete' value='삭제'>" + '</td>';
 		htmls += '</tr>'; // 각 행의 끝
 	}); // each end

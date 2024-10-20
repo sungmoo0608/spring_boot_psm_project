@@ -37,7 +37,7 @@ function listCallback(result) {
 	    '<a href="/pet_content_view.html?desertionNo=' + this.petHopeVO.desertionNo + '">' + this.petHopeVO.desertionNo + '</a>' + '</td>';
 	    htmls += '<td>' + this.petVO.careNm + '</td>';
 		htmls += '<td>' + this.petHopeVO.hdate + '</td>';
-		htmls += '<td>' + this.petHopeVO.pet_user_id + '</td>'; 
+		htmls += '<td>' + this.petHopeVO.userid + '</td>'; 
 		htmls += '<td>'+ '<input id=' + this.petHopeVO.hopeno + " type='button' class='btn_delete' value='삭제'>" + '</td>';
 		htmls += '</tr>'; // 각 행의 끝
 		

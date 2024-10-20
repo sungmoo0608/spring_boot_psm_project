@@ -15,14 +15,14 @@
 		$("#insertPet").submit(function(event){
 			event.preventDefault();
 			let bnum = $("#bnum").val();
-			let pet_user_id = $("#pet_user_id").val();
+			let userid = $("#userid").val();
 			let btitle = $("#btitle").val();
 			let bcontent = $("#bcontent").val();
 			let cate_no = Number($("#cate_no").val());
 
 			let insert ={
 					bnum : bnum,
-					pet_user_id : pet_user_id,
+					userid : userid,
 					btitle : btitle,
 					bcontent : bcontent,
 					cate_no : cate_no
@@ -60,7 +60,7 @@
       <form id="insertPet" action="insert" method="post"> 
       <input type="hidden" id="bnum">
       	제목 <input id="btitle" type="text" name="btitle"> <br/>
-      	작성자 id : <input id="pet_user_id" type="text" name="pet_user_id"> <br/>
+      	작성자 id : <input id="userid" type="text" name="userid"> <br/>
       	내용 <input id="bcontent" type="text"  name="bcontent"><br/>
       	카테고리 <select id="cate_no" name="category">
     		<option value="1">공지사항</option>

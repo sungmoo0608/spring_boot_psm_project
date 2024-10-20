@@ -17,13 +17,13 @@
 			let hopeno = $("#hopeno").val();
 			let desertionNo = $("#desertionNo").val();
 			let hdate = $("#hdate").val();
-			let pet_user_id = $("#pet_user_id").val();
+			let userid = $("#userid").val();
 			
 			let insert ={
 					hopeno : hopeno,
 					desertionNo : desertionNo,
 					hdate : hdate,
-					pet_user_id : pet_user_id
+					userid : userid
 			}
 			console.log($("#hopeno").val() + "---------------------------------------------");
 			let pet = PetHope();
@@ -46,7 +46,7 @@
       <input type="hidden" id="hopeno">
       	입양희망 유기동물번호 : <input id="desertionNo" type="text" name="desertionNo"> <br/>
       	방문희망 날짜 : <input id="hdate" type="datetime-local" name="hdate"> <br/>
-      	아이디 <input id="pet_user_id" type="text"  name="pet_user_id"><br/>
+      	아이디 <input id="userid" type="text"  name="userid"><br/>
       	<input type="submit" value="제출"><br>
       </form>
 </body>

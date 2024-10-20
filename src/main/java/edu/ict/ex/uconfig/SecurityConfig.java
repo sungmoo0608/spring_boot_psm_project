@@ -54,11 +54,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .usernameParameter("userid")
             .passwordParameter("password")
             .failureUrl("/login?error=true") // 로그인 실패 시 에러 페이지
-            .defaultSuccessUrl("/") // 로그인 후 loginInfo로 리디렉션
-            .and()
-            .oauth2Login()
-            .loginPage("/login")
-            .defaultSuccessUrl("/"); //구글 로그인이 완료된 뒤의 후처리가 필요함.
+            .defaultSuccessUrl("/"); // 로그인 후 loginInfo로 리디렉션
+
         
 	}
 	

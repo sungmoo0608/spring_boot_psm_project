@@ -2,6 +2,8 @@ package edu.ict.ex.uvo;
 
 import java.util.List;
 
+import edu.ict.ex.vo.PetBoardsVO;
+import edu.ict.ex.vo.PetHopeVO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,5 +43,6 @@ public class UserVO  {
 	private String enabled;
 	
 	private List<AuthVO> authList;
-	
+	private List<PetHopeVO> petHopeList;
+	private List<PetBoardsVO> userBoardList;
 }

@@ -52,22 +52,27 @@
 							</h4>
 						</div>
 						<div class="card-body">
+						
 							<form id="reservationForm">
 								<input type="hidden" name="userid" value="${user.userid}"/>
-								<div class="mb-5">
-									<label for="visitorName" class="form-label">이름</label> 
-									<input type="text" name="userid" class="form-control" id="pet_user_id" value="${user.userid}" required>
+								<div class="mb-2">
+									<label for="userid" class="form-label">회원 아이디</label> 
+									<input type="text" name="userid" class="form-control" id="userid" value="${user.userid}" required readonly/>
 								</div>
-								<div class="mb-5">
-									<label for="visitorPhone" class="form-label">동물번호</label>
-									<input type="tel" class="form-control" id="desertionNo" required>
+								<div class="mb-2">
+									<label for="visitorPhone" class="form-label">동물 번호</label>
+									<input type="text" class="form-control" id="desertionNo" required readonly/>
 								</div>
-								<div class="mb-5">
+								<div class="mb-2">
 									<label for="visitDate" class="form-label">방문 날짜</label> 
-									<input id="hdate" type="datetime-local" name="hdate" required>
+									<input class="form-control" id="hdate" type="datetime-local" name="hdate" required>
 								</div>
-								<input type="submit" class="btn btn-primary" value="제출">
+								<div class="d-grid gap-2">
+									<button class="btn btn-primary" type="submit">제출하기</button>
+									<button class="btn btn-outline-secondary" onclick="window.location.href='/pet'">취소</button>
+								</div>
 							</form>
+							
 						</div>
 
 					</div>
@@ -160,6 +165,18 @@
 			</div>
 		</div>
 	</div>
+
+
+	<script>
+	    // URL 파라미터에서 desertionNo 가져오기
+	    const urlParams = new URLSearchParams(window.location.search);
+	    const desertionNo = urlParams.get('desertionNo');
+	
+	    // 동물 번호 입력 필드에 값 설정
+	    if (desertionNo) {
+	        document.getElementById('desertionNo').value = desertionNo;
+	    }
+	</script>
 
 
 	<script>

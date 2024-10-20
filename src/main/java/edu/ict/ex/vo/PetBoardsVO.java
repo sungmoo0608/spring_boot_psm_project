@@ -1,7 +1,5 @@
 package edu.ict.ex.vo;
 
-import java.util.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,7 +36,7 @@ public class PetBoardsVO  {
 	private int bindent;
 	private int bgroup;
 	private String bdate;
-	private String pet_user_id;
+	private String userid;
 	private int cate_no;
 	
 	

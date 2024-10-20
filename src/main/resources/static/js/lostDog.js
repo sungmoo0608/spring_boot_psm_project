@@ -80,7 +80,7 @@ let lostDog = function() {
 
 	function del(desertionNo) {
 
-		$.ajax({
+		return $.ajax({
 			type: "DELETE",
 			url: "/pet/" + desertionNo,
 			success: function(result) {

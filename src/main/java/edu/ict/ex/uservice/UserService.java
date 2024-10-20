@@ -30,9 +30,15 @@ public class UserService {
     }
     
     public UserVO getUserById(String userid) {
-        return userMapper.getUser(userid);
+        UserVO user = userMapper.getUser(userid);
+        return user;
     }
-
+    
+    public UserVO getUserBoardById(String userid) {
+        UserVO userboard = userMapper.getUserBoard(userid);
+        return userboard;
+    }
+    
     public boolean passwordMatches(String rawPassword, String encodedPassword) {
         return passwordEncoder.matches(rawPassword, encodedPassword);
     }

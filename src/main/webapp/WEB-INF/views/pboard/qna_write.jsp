@@ -22,11 +22,11 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/PetBoard.js"></script>
-<script src="${pageContext.request.contextPath}/js/qnawrite.js"> </script>
+<script src="${pageContext.request.contextPath}/js/qnaanswer.js"> </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/vendor.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,7 +40,8 @@
 	<jsp:include page="/WEB-INF/views/header.jsp" />
 	
 	<section>
-	<div class="container">
+	<div class="container mb-5">
+		<div class="form-container">
 	    <h1 class="text-center mt-5 pb-5">답변 작성하기</h1>
 	    
 	    <form id="questionForm" method="post">
@@ -53,23 +54,26 @@
 	            <input type="text" class="form-control" id="btitle" name="btitle" required>
 	        </div>
 	        <div class="form-group pb-5">
-	            <label for="pet_user_id">작성자</label>
-	            <input type="text" class="form-control" id="pet_user_id" name="pet_user_id" required>
+	            <label for="userid">작성자</label>
+	            <input type="text" class="form-control" id="userid" name="userid" required>
 	        </div>
 	        <div class="form-group pb-5">
 	            <label for="content">답변 내용</label>
 	            <textarea class="form-control" id="bcontent" name="bcontent" rows="5" required></textarea>
 	        </div>
-	        <input type="submit" class="btn btn-primary btn-block" value="답변 제출하기" />
+	        <div class="d-grid gap-2">
+	        	<button class="btn btn-primary" type="submit">답변 제출하기</button>
+	        	<button class="btn btn-outline-secondary" onclick="window.location.href='/pboard/qna'">취소</button>
+	        </div>
 	    </form>
+	    </div>
 	</div>
 
 	</section>
 
 	<jsp:include page="/WEB-INF/views/footer.jsp" />
 
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <!-- <script>
         document.getElementById('questionForm').addEventListener('submit', function(event) {
             event.preventDefault();

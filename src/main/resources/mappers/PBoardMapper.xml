@@ -14,7 +14,7 @@ SELECT
     PET_BOARDS.BCONTENT, 
     PET_BOARDS.BHIT, 
     PET_BOARDS.BDATE,
-    PET_BOARDS.PET_USER_ID
+    PET_BOARDS.USERID
 FROM 
     PET_BOARD_CATEGORIES
 LEFT JOIN 
@@ -41,7 +41,7 @@ ORDER BY
 		<result property="bindent" column="bindent" />
 		<result property="bgroup" column="bgroup" />
 		<result property="bdate" column="bdate" />
-		<result property="pet_user_id" column="pet_user_id" />
+		<result property="userid" column="userid" />
 		<result property="cate_no" column="cate_no" />
 	</resultMap>
 
@@ -57,8 +57,8 @@ ORDER BY
 		<![CDATA[ UPDATE PET_BOARDS SET btitle = #{btitle}, bcontent = #{bcontent} WHERE bnum = #{bnum} ]]> 
 	</update>
 	 <insert id="insert">
-	 <![CDATA[ INSERT INTO PET_BOARDS (bnum, btitle, bcontent, bhit, bstep, bindent, bgroup, bdate, pet_user_id, cate_no) 
-VALUES (bnum_seq.NEXTVAL,#{btitle},#{bcontent},0, 0, 0, 1, SYSDATE, #{pet_user_id}, #{cate_no} )
+	 <![CDATA[ INSERT INTO PET_BOARDS (bnum, btitle, bcontent, bhit, bstep, bindent, bgroup, bdate, userid, cate_no) 
+VALUES (bnum_seq.NEXTVAL,#{btitle},#{bcontent},0, 0, 0, 1, SYSDATE, #{userid}, #{cate_no} )
 		]]> 
 	</insert>
 	

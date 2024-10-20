@@ -13,24 +13,23 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 
-public class MyPageController {
+public class UshelterController {
 	
     @Autowired
     private UserService userService; // UserService 주입
     
     // 회원 정보 페이지 표시
-    @GetMapping("/mypage")
-    public String mypage(Model model, Principal principal) {
+    @GetMapping("/ushelter")
+    public String ushelter(Model model, Principal principal) {
     	
-        log.info("mypage()..");
+        log.info("ushelter()..");
         
         if (principal != null) {
             String userid = principal.getName(); // 로그인된 사용자 ID
             model.addAttribute("user", userService.getUserById(userid));
-            model.addAttribute("userBoard", userService.getUserBoardById(userid));
         }
      
-        return "user/mypage"; // 마이페이지 뷰 이름
+        return "admin/ushelter"; // 마이페이지 뷰 이름
     }
 
 }

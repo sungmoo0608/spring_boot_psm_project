@@ -29,14 +29,6 @@ public class PathController {
 		return "hope/hope"; 
 	}
 	
-	//어드민-보호소 방문 예약 관리
-	@GetMapping("/ushelter")
-	public String ushelter(Model model) {
-
-		return "admin/ushelter"; 
-	}
-	
-	
 	//notice
 	@GetMapping("/pboard/notice")
 	public String notice(Model model) {

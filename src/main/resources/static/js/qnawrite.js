@@ -3,14 +3,14 @@ $(document).ready(function(){
 	        event.preventDefault();
 	        
 	        let bnum = $("#bnum").val();
-	        let pet_user_id = $("#pet_user_id").val();
+	        let userid = $("#userid").val();
 	        let btitle = $("#btitle").val();
 	        let bcontent = $("#bcontent").val();
 	        let cate_no = Number($("#cate_no").val());
 
 	        let insert = {
 	            bnum: bnum,
-	            pet_user_id: pet_user_id,
+	            userid: userid,
 	            btitle: btitle,
 	            bcontent: bcontent,
 	            cate_no: cate_no

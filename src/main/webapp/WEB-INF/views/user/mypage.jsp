@@ -43,10 +43,10 @@
 			<div class="col-md-4 mb-4">
 				<div class="card">
 					<div class="card-body text-center">
-						<span class="badge rounded-pill text-bg-info text-light">아이디</span> ${user.userid} <br>
-						<span class="badge rounded-pill text-bg-info text-light">이름</span> ${user.uname} <br>
-						<span class="badge rounded-pill text-bg-info text-light">휴대폰</span> ${user.utel} <br>
-						<span class="badge rounded-pill text-bg-info text-light">이메일</span> ${user.uemail} <br>
+						<span class="badge rounded-pill text-bg-info text-light">아이디</span> ${user.userid}<br>
+						<span class="badge rounded-pill text-bg-info text-light">이름</span> ${user.uname}<br>
+						<span class="badge rounded-pill text-bg-info text-light">휴대폰</span> ${user.utel}<br>
+						<span class="badge rounded-pill text-bg-info text-light">이메일</span> ${user.uemail}<br>
 						<button class="btn btn-sm btn-success" onclick="window.location.href='/modify'">정보 수정</button>
 						<button class="btn btn-sm btn-danger" onclick="window.location.href='/deleteUser'">회원 탈퇴</button>
 						
@@ -65,43 +65,29 @@
 					<div class="row ">
 						<div class="card-body">
 							<div class="row">
-								<div class="col-md-4 mb-3">
-									<div class="card">
-										<img src="images/item8.jpg" class="card-img-top" alt="관심 동물 1">
-										<div class="card-body">
-											<h5 class="card-title">이름: {}</h5>
-											<p class="card-text">
-												나이: {}살<br> 품종: {}
-											</p>
-											<a href="#" class="btn btn-outline-primary">상세 정보 누르면
-												특이사항나오게</a>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4 mb-3">
-									<div class="card">
-										<img src="images/item8.jpg" class="card-img-top" alt="관심 동물 2">
-										<div class="card-body">
-											<h5 class="card-title">이름: {}</h5>
-											<p class="card-text">
-												나이: {}살<br> 품종: {}
-											</p>
-											<a href="#" class="btn btn-outline-primary">상세 정보</a>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4 mb-3">
-									<div class="card">
-										<img src="images/item8.jpg" class="card-img-top" alt="관심 동물 3">
-										<div class="card-body">
-											<h5 class="card-title">이름: {}</h5>
-											<p class="card-text">
-												나이: {}살<br> 품종: {}
-											</p>
-											<a href="#" class="btn btn-outline-primary">상세 정보</a>
-										</div>
-									</div>
-								</div>
+
+							    <c:if test="${not empty user.petHopeList}">
+							        <c:forEach items="${user.petHopeList}" var="petHope">
+							            <div class="col-md-4 mb-3">
+							                <div class="card">
+							                    <img src="images/item8.jpg" class="card-img-top" alt="관심 동물 ">
+							                    <div class="card-body">
+							                        <h5 class="card-title">동물 번호: ${petHope.desertionNo}</h5>
+							                        <p class="card-text">
+							                            방문 예정일 : ${petHope.hdate} <!-- 필요 시 품종 정보 추가 -->
+							                            
+							                        </p>
+							                        <a href="/pet/pet_content_view?desertionNo=${petHope.desertionNo}" class="btn btn-outline-primary">상세 정보</a>
+							                    </div>
+							                </div>
+							            </div>
+							        </c:forEach>
+							    </c:if>
+							    
+							    <c:if test="${empty user.petHopeList}">
+							        <p>신청한 내역이 없습니다.</p>
+							    </c:if>
+								
 							</div>
 						</div>
 					</div>
@@ -110,17 +96,33 @@
 				<div class="card mb-4">
 					<div class="card-header">
 						<h4>
-							<i class="fas fa-calendar-alt me-2"></i>보호소 방문 예정
+							<i class="fas fa-calendar-alt me-2"></i>작성 글 모아보기
 						</h4>
 					</div>
+					
 					<div class="card-body">
-						<p class="mb-0">
-							다음 방문 예정일: <strong>{날짜}</strong>
-						</p>
-						<small class="text-muted">방문 일정 변경은 최소 24시간 전에 방문 예약 페이지에서
-							변경 부탁드립니다.</small>
+						<div class="row">
+						<c:if test="${not empty userBoard.userBoardList}">
+					    <c:forEach items="${userBoard.userBoardList}" var="userBoard">
+					        <div class="col-md-4 mb-3">
+							     <div class="card">
+							        <div class="card-body">
+										<h5 class="card-title">게시글 번호: ${userBoard.bnum}</h5>
+							                        
+											<p class="card-text">제목 : ${userBoard.btitle}</p>
+											<p class="card-text">작성 일자 : ${userBoard.bdate}</p>
+											<a href="/pboard/petboard_content_view?bnum=${userBoard.bnum}" class="btn btn-outline-primary">상세 정보</a>
+											
+							        </div>
+							     </div>
+							</div>
+					    </c:forEach>
+						</c:if>
+						<c:if test="${empty userBoard.userBoardList}">
+						    <p>방문 예정일이 없습니다.</p>
+						</c:if>
+						</div>
 					</div>
-				</div>
 
 			</div>
 		</div>

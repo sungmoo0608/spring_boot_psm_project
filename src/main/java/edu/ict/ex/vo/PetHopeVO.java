@@ -17,10 +17,7 @@ public class PetHopeVO  {
 	private int hopeno;
 	private int desertionNo;
 	private Date hdate;
-	private String pet_user_id;
-	
-	
-
+	private String userid;
 }
 
 

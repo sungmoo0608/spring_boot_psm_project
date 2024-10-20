@@ -13,7 +13,8 @@ import edu.ict.ex.uvo.UserVO;
 public interface UserMapper  {
 	
 	UserVO getUser(String userid);
-	
+	UserVO getUserBoard(String userid);
+        
     @Select("SELECT COUNT(*) FROM users WHERE userid = #{userid}")
     int countUserById(String userid);
     

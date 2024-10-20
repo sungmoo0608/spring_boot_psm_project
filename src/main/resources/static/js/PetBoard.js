@@ -103,7 +103,7 @@ let PetBoard = function() {
 	function answer(answer, callback) {
 		$.ajax({
 			type: "POST",
-			url: "/pboard/answer",
+			url: "/pboard/",
 			contentType: 'application/json; charset=utf-8',
 			data: JSON.stringify(answer),
 			success: function(response) {

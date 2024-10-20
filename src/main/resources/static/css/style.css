@@ -422,7 +422,17 @@ button.filter-button:hover {
   border-color: #41403E;
 }
 
-.ba
+.pet-gender,
+.pet-age,
+.pet-breed,
+.pet-location,
+.pet-situation {
+	font-size:0.75rem;
+	border-radius: 0.75rem;
+	border: 1px solid rgba(65, 64, 62, 0.20);
+	padding: 1.25rem 0rem 1.25rem 1.25rem;
+	background: #ccc;
+}
 
 
 /* testimonial style  */

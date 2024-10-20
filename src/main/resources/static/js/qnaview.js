@@ -11,7 +11,7 @@ $(document).ready(function() {
             htmls += '<tr>';
             htmls += '<th scope="row">' + this.petboards.bnum + '</th>';
             htmls += '<td><a href="/pboard/petboard_content_view?bnum=' + this.petboards.bnum + '" class="text-decoration-none">' + this.petboards.btitle + '</a></td>';
-            htmls += '<td>' + this.petboards.pet_user_id + '</td>';
+            htmls += '<td>' + this.petboards.userid + '</td>';
             htmls += '<td>' + this.petboards.bdate + '</td>';
 			htmls += '<td>';
 			for (let i = 0; i < this.petboards.bindent; i++) {
