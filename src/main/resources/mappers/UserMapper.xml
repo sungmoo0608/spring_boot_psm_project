@@ -123,4 +123,12 @@
         ]]>
 	</select>
 	
+	<delete id="deleteAdmin">
+    	<![CDATA[
+    		delete* from users, authorities 
+			where users.userid = authorities.userid 
+			and users.userid  = #{userid}
+    	]]>
+    </delete>
+	
 </mapper>

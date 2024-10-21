@@ -44,11 +44,11 @@
 			<h1 class="text-center fw-bold   mb-5 pt-5">보호소 방문 예약</h1>
 
 			<div class="row">
-				<div class="col-md-6 mb-4">
+				<div class="col-12">
 					<div class="card">
 						<div class="card-header">
 							<h4>
-								<i class="fas fa-calendar-plus me-2"></i>새 예약 등록
+								<i class="fas fa-calendar-plus me-2"></i>예약 등록
 							</h4>
 						</div>
 						<div class="card-body">
@@ -79,11 +79,11 @@
 				</div>
 				
 				
-				<div class="col-md-6 mb-4">
+				<div class="col-12">
 					<div class="card">
 						<div class="card-header">
 							<h4>
-								<i class="fas fa-calendar-check me-2"></i>현재 예약 상태
+								<i class="fas fa-calendar-check me-2"></i>예약 관리
 							</h4>
 						</div>
 						

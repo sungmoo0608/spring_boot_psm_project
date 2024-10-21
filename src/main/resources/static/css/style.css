@@ -426,12 +426,27 @@ button.filter-button:hover {
 .pet-age,
 .pet-breed,
 .pet-location,
-.pet-situation {
+.pet-situation,
+.pet-delete {
 	font-size:0.75rem;
 	border-radius: 0.75rem;
 	border: 1px solid rgba(65, 64, 62, 0.20);
 	padding: 1.25rem 0rem 1.25rem 1.25rem;
-	background: #ccc;
+}
+
+.pet-gender,
+.pet-breed,
+.pet-situation {
+	background: #696969;
+}
+
+.pet-age,
+.pet-location {
+	background: #808080;
+}
+
+.pet-delete {
+	background: #DC143C;
 }
 
 

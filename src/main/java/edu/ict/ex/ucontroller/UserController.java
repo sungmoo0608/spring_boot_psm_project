@@ -178,6 +178,7 @@ public class UserController {
             return "user/deleteForm";
         }
     }
+	
     
     // 회원정보 수정
     @GetMapping("/modify")

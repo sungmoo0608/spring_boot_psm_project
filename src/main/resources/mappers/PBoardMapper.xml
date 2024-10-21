@@ -14,7 +14,14 @@ SELECT
     PET_BOARDS.BCONTENT, 
     PET_BOARDS.BHIT, 
     PET_BOARDS.BDATE,
-    PET_BOARDS.USERID
+    PET_BOARDS.USERID,
+    PET_BOARDS.BINDENT,
+    PET_BOARDS.BSTEP,
+    PET_BOARDS.BGROUP,
+    CASE 
+        WHEN PET_BOARDS.BINDENT > 0 THEN '답글' 
+        ELSE '원글' 
+    END AS POST_TYPE
 FROM 
     PET_BOARD_CATEGORIES
 LEFT JOIN 
@@ -22,9 +29,12 @@ LEFT JOIN
 WHERE 
     PET_BOARD_CATEGORIES.CATE_NO = #{cate_no}
 ORDER BY 
-    PET_BOARDS.BNUM DESC
+    PET_BOARDS.BGROUP,   
+    PET_BOARDS.BSTEP ASC, 
+    PET_BOARDS.BINDENT ASC
 
-	]]>
+   ]]>
+
 	</select>
 
 	<resultMap id="PetBoardsCategoriesMap" type="edu.ict.ex.vo.PetBoardsCategoriesJoinVO">

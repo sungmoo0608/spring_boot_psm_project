@@ -39,34 +39,37 @@
 	<jsp:include page="/WEB-INF/views/header.jsp" />
 	
 	<!-- 중간 -->
-	<section style="background: rgb(244, 243, 224)">
-		<div class="container ">
-			<h1 class="text-center fw-bold   mb-5 pt-5">회원 조회</h1>
+	<section>
+	<div class="container mb-5">
+	
+		<div class="container mt-4">
+			<h1 class="mb-4 text-center fw-bolder">회원 조회</h1>
+		</div>
 
-			<div class="row">
+		<div class="row">
 			
-				<div class="col">
-					
-					<div class="card">
-					
-					<c:forEach var="user" items="${userList}">
-			            <div>
-			                <div>${user.userid}</div>
-			                <div>${user.uname}</div>
-			                <div>${user.uemail}</div>
-			                <div>${user.utel}</div>
-			                <div>
-			                    <a href="<c:url value='/modify?userid=${user.userid}' />">Edit</a>
-			                    <a href="<c:url value='/deleteUser?userid=${user.userid}' />">Delete</a>
-			                </div>
-			            </div>
-			        </c:forEach>
-					
-					</div>	
-				</div>
+			<div class="col">회원 ID</div>
+			<div class="col">회원 이름</div>
+			<div class="col">회원 EMAIL</div>
+			<div class="col">회원 휴대폰 번호</div>
+			<div class="col">수정 | 삭제</div>
 				
+		</div>
+		
+		<c:forEach var="user" items="${userList}">				
+		<div class="row">	
+			<div class="col">${user.userid}</div>
+			<div class="col">${user.uname}</div>
+			<div class="col">${user.uemail}</div>
+			<div class="col">${user.utel}</div>
+			<div class="col">
+				<a href="<c:url value='/modify?userid=${user.userid}' />">Edit</a>
+				<a href="<c:url value='/deleteUser?userid=${user.userid}' />">Delete</a>
 			</div>
 		</div>
+		</c:forEach>
+
+	</div>
 	</section>
 
 	<!-- 푸터 로딩 -->

@@ -18,7 +18,6 @@ public interface UserMapper  {
 	UserVO getUserHope(String userid);
 	UserVO getUserBoard(String userid);
 	
-	
 	@Select("SELECT * FROM users")
 	List<UserVO> getAllUsers();
         

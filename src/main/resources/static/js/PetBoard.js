@@ -100,24 +100,24 @@ let PetBoard = function() {
 
 	}
 	
-	function answer(answer, callback) {
-		$.ajax({
-			type: "POST",
-			url: "/pboard/",
-			contentType: 'application/json; charset=utf-8',
-			data: JSON.stringify(answer),
-			success: function(response) {
-				console.log(response);
-				if (callback) {
-					callback(response);
-					location.replace('/pboard/qna');
-				}			
-			},
-			error: function(xhr, status, error) {
-				console.error('AJAX 요청 중 오류 발생:', error); // 오류 처리
-			}
-		})
-	}
+   function answer(answer, callback) {
+      $.ajax({
+         type: "POST",
+         url: "/pboard/answer",
+         contentType: 'application/json; charset=utf-8',
+         data: JSON.stringify(answer),
+         success: function(response) {
+            console.log(response);
+            if (callback) {
+               callback(response);
+               location.replace('/pboard/qna');
+            }         
+         },
+         error: function(xhr, status, error) {
+            console.error('AJAX 요청 중 오류 발생:', error); // 오류 처리
+         }
+      })
+   }
 
 
 	return {

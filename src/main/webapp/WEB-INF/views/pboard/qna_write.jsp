@@ -46,6 +46,7 @@
 	    
 	    <form id="questionForm" method="post">
 	        <div class="form-group pb-5">
+	        	<input type="hidden" name="userid" value="${user.userid}"/>
 	            <input type="hidden" name="bnum" id="bnum">
 	            <input type="hidden" name="bgroup" id="bgroup">
 	            <input type="hidden" name="bstep" id="bstep">
@@ -55,7 +56,7 @@
 	        </div>
 	        <div class="form-group pb-5">
 	            <label for="userid">작성자</label>
-	            <input type="text" class="form-control" id="userid" name="userid" required>
+	            <input type="text" name="userid" class="form-control" id="userid" value="${user.userid}" required readonly/>
 	        </div>
 	        <div class="form-group pb-5">
 	            <label for="content">답변 내용</label>
