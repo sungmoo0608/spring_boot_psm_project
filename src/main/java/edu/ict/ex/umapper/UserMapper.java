@@ -15,7 +15,9 @@ import edu.ict.ex.uvo.UserVO;
 public interface UserMapper  {
 	
 	UserVO getUser(String userid);
+	UserVO getUserHope(String userid);
 	UserVO getUserBoard(String userid);
+	
 	
 	@Select("SELECT * FROM users")
 	List<UserVO> getAllUsers();

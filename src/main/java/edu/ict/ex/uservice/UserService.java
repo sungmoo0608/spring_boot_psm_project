@@ -37,12 +37,17 @@ public class UserService {
     
     public UserVO getUserById(String userid) {
         UserVO user = userMapper.getUser(userid);
-        return user;
+       return user;
+    }
+    
+    public UserVO getUserHopeById(String userid) {
+        UserVO userHope = userMapper.getUserHope(userid);
+       return userHope;
     }
     
     public UserVO getUserBoardById(String userid) {
-        UserVO userboard = userMapper.getUserBoard(userid);
-        return userboard;
+        UserVO userBoard = userMapper.getUserBoard(userid);
+       return userBoard;
     }
     
     public boolean passwordMatches(String rawPassword, String encodedPassword) {

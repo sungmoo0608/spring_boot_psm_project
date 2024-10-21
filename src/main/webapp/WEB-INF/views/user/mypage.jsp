@@ -66,25 +66,25 @@
 						<div class="card-body">
 							<div class="row">
 
-							    <c:if test="${not empty user.petHopeList}">
-							        <c:forEach items="${user.petHopeList}" var="petHope">
+							    <c:if test="${not empty userHope.petHopeList}">
+							        <c:forEach items="${userHope.petHopeList}" var="userHope">
 							            <div class="col-md-4 mb-3">
 							                <div class="card">
 							                    <img src="images/item8.jpg" class="card-img-top" alt="관심 동물 ">
 							                    <div class="card-body">
-							                        <h5 class="card-title">동물 번호: ${petHope.desertionNo}</h5>
+							                        <h5 class="card-title">동물 번호: ${userHope.desertionNo}</h5>
 							                        <p class="card-text">
-							                            방문 예정일 : ${petHope.hdate} <!-- 필요 시 품종 정보 추가 -->
+							                            방문 예정일 : ${userHope.hdate} <!-- 필요 시 품종 정보 추가 -->
 							                            
 							                        </p>
-							                        <a href="/pet/pet_content_view?desertionNo=${petHope.desertionNo}" class="btn btn-outline-primary">상세 정보</a>
+							                        <a href="/pet/pet_content_view?desertionNo=${userHope.desertionNo}" class="btn btn-outline-primary">상세 정보</a>
 							                    </div>
 							                </div>
 							            </div>
 							        </c:forEach>
 							    </c:if>
 							    
-							    <c:if test="${empty user.petHopeList}">
+							    <c:if test="${empty userHope.petHopeList}">
 							        <p>신청한 내역이 없습니다.</p>
 							    </c:if>
 								
@@ -119,7 +119,7 @@
 					    </c:forEach>
 						</c:if>
 						<c:if test="${empty userBoard.userBoardList}">
-						    <p>방문 예정일이 없습니다.</p>
+						    <p>작성한 게시글이 없습니다.</p>
 						</c:if>
 						</div>
 					</div>

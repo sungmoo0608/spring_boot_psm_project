@@ -59,19 +59,29 @@ $(document).ready(function() {
 	let pet = lostDog();
 	pet.list(listCallback);
 
-	$(document).on("click", ".btn_delete", function() {
-		const petId = $(this).attr("id");
-		console.log(petId);
-		
-		// 삭제 확인 대화 상자 표시
-		if (confirm("정말 삭제할까요?")) {
-			// 서버에 삭제 요청
-			let pet = lostDog();
-			pet.del(petId).then(() => {
-				// 삭제 후 리스트를 다시 불러옴
-				pet.list(listCallback);
-			});
-		}
+    $(document).on("click", ".btn_delete", function() {
+        const petId = $(this).attr("id");
+        console.log(petId);
 
-	});
+        // 사용자 역할을 확인 (예시로 "ROLE_ADMIN"이라고 가정)
+        const userRole = "ROLE_ADMIN"; // 이 부분은 실제로는 서버에서 가져와야 함
+
+        // 삭제 확인 대화 상자 표시
+        let confirmMessage;
+        if (userRole === "ROLE_ADMIN") {
+            confirmMessage = "관리자 권한으로 삭제하시겠습니까?";
+        } else {
+            confirmMessage = "삭제 권한이 없습니다.";
+        }
+
+        if (userRole === "ROLE_ADMIN" && confirm(confirmMessage)) {
+            // 서버에 삭제 요청
+            pet.del(petId).then(() => {
+                // 삭제 후 리스트를 다시 불러옴
+                pet.list(listCallback);
+            });
+        } else if (userRole !== "ROLE_ADMIN") {
+            alert(confirmMessage);
+        }
+    });
 });

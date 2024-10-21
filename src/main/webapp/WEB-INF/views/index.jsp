@@ -54,7 +54,7 @@
 								<h3 class="banner-title fw-normal display-3">
 									성장을 함께하는 <br> <span class="text-primary">핑핑 직원들을 소개합니다.</span>
 								</h3>
-								<a href="#" class="btn btn-outline-dark btn-lg fs-6 rounded-1 "> Detail Page </a>
+								<a href="<c:url value="/pboard/notice1" />" class="btn btn-outline-dark btn-lg fs-6 rounded-1 "> Detail Page </a>
 							</div>
 						</div>
 					</div>
@@ -70,7 +70,7 @@
 									새로운 가족을 맞이할 준비되셨나요? <br> 
 									<span class="text-primary">Fall Event</span>
 								</h3>
-								<a href="#" class="btn btn-outline-dark btn-lg  fs-6 rounded-1 "> Detail Page </a>
+								<a href="<c:url value="/pboard/notice2" />" class="btn btn-outline-dark btn-lg  fs-6 rounded-1 "> Detail Page </a>
                     		<use xlink:href="#arrow-right"></use> </svg></a>
 							</div>
 						</div>
@@ -86,7 +86,7 @@
 								<h3 class="banner-title display-3 fw-normal">
 									새 가족과의 만남,<br> <span class="text-primary">입양절차 과정</span>
 								</h3>
-								<a href="#" class="btn btn-outline-dark btn-lg  fs-6 rounded-1 ">Detail Page </a>
+								<a href="<c:url value="/pboard/notice3" />" class="btn btn-outline-dark btn-lg  fs-6 rounded-1 ">Detail Page </a>
 							</div>
 						</div>
 					</div>
@@ -101,7 +101,7 @@
 								<h3 class="banner-title display-3 fw-normal">
 									정기적인 건강체크,<br> <span class="text-primary">생명 지킴이</span>
 								</h3>
-								<a href="#" class="btn btn-outline-dark btn-lg  fs-6 rounded-1 "> Detail Page </a>
+								<a href="<c:url value="/pboard/notice4" />" class="btn btn-outline-dark btn-lg  fs-6 rounded-1 "> Detail Page </a>
 							</div>
 
 						</div>

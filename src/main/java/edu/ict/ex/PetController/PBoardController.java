@@ -157,89 +157,28 @@ public class PBoardController {
 
 		return entity;
 	}
-//	
+	
+	
+	@PostMapping("/answer")
+	   public ResponseEntity<String> reply(@RequestBody PetBoardsVO petBoardsVO) {
 
-//	@GetMapping("/{bid}/{bname}/{btitle}") // 경로 변수
-//	public BoardVO bidcontent(BoardVO boardVO) {
-//		log.info("아이디()..." + boardVO);
-//
-//		return boardVO;
-//	}
-//
-//	@GetMapping("/rest") //경로변수
-//	public ModelAndView rest() {
-//
-//		ModelAndView mv = new ModelAndView();
-//
-//		mv.setViewName("rest/rest_list2");
-//
-//		return mv;
-//	}
-//
-//	// /boards/
-//	// @RequestBody json을 자바 객체로 변환
-//	@PostMapping("/")
-//	public ResponseEntity<String> write(@RequestBody BoardVO boardVO) {
-//
-//		log.info("write..");
-//		log.info("board" + boardVO);
-//
-//		ResponseEntity<String> entity = null;
-//
-//		try {
-//			boardService.insert(boardVO);
-//			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
-//		}
-//
-//		return entity;
-//	}
-//
-//	@DeleteMapping("/{bid}")
-//	public ResponseEntity<String> delete(@PathVariable int bid) {
-//
-//		log.info("delete..");
-//		log.info("board" + bid);
-//
-//		ResponseEntity<String> entity = null;
-//
-//		try {
-//			int rn = boardService.remove(bid);
-//			boardService.remove(bid);
-//			entity = new ResponseEntity<String>(String.valueOf(rn), HttpStatus.OK);
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
-//		}
-//
-//		return entity;
-//	}
-//
-//
-//	@PostMapping("/reply")
-//	public ResponseEntity<String> reply(@RequestBody BoardVO boardVO) {
-//
-//		log.info("update..");
-//		log.info("board" + boardVO);
-//
-//		ResponseEntity<String> entity = null;
-//
-//		try {
-//			boardService.boardReply(boardVO);
-//
-//			entity = new ResponseEntity<String>("reply success", HttpStatus.OK);
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
-//		}
-//
-//		return entity;
-//	}
-//	
+	      log.info("update..");
+	      log.info("board" + petBoardsVO);
+
+	      ResponseEntity<String> entity = null;
+
+	      try {
+	         pBoardService.boardReply(petBoardsVO);
+
+	         entity = new ResponseEntity<String>("reply success", HttpStatus.OK);
+
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	         entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+	      }
+
+	      return entity;
+	}
+	   
 
 }

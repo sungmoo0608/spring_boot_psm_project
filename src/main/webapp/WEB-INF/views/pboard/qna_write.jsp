@@ -73,17 +73,6 @@
 
 	<jsp:include page="/WEB-INF/views/footer.jsp" />
 
-
-    <!-- <script>
-        document.getElementById('questionForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            // 질문 제출 처리 로직을 여기에 추가하세요.
-            alert('질문이 제출되었습니다!');
-            // 입력 필드 초기화
-            this.reset();
-        });
-    </script> -->
-
 </body>
 
 </html>

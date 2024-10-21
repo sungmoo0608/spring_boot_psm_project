@@ -65,6 +65,19 @@
 		<result property="uemail" column="uemail"/>
 		<result property="enabled" column="enabled"/>
 		<association property="authList" resultMap="authMap"></association>
+	</resultMap>
+	
+	<resultMap id="userHopeMap" type="edu.ict.ex.uvo.UserVO">
+		<result property="userid" column="userid"/>
+		<result property="password" column="password"/>
+		<result property="uname" column="uname"/>
+		<result property="utel" column="utel"/>
+		<result property="zipcode" column="zipcode"/>
+		<result property="uadr" column="uadr"/>
+		<result property="uadrdetail" column="uadrdetail"/>
+		<result property="uemail" column="uemail"/>
+		<result property="enabled" column="enabled"/>
+		<association property="authList" resultMap="authMap"></association>
 		<association property="petHopeList" resultMap="petHopeMap"></association>
 	</resultMap>
 	
@@ -84,14 +97,20 @@
 	</resultMap>
 	
 	<select id="getUser" resultMap="userMap">
+		<![CDATA[
+			select * from users, authorities 
+			where users.userid = authorities.userid 
+			and users.userid  = #{userid}
+		]]>
+	</select>
+	
+	
+	<select id="getUserHope" resultMap="userHopeMap">
        <![CDATA[
 		    SELECT *
         	FROM 
-            users JOIN 
-            authorities ON users.userid = authorities.userid
-        	LEFT JOIN 
-            hopelist ON users.userid = hopelist.userid
-        	WHERE users.userid = #{userid}
+            hopelist 
+        	WHERE hopelist.userid = #{userid}
         ]]>
 	</select>
 	
@@ -99,11 +118,8 @@
        <![CDATA[
 		    SELECT *
         	FROM 
-            users JOIN 
-            authorities ON users.userid = authorities.userid
-        	LEFT JOIN 
-            pet_boards ON users.userid = pet_boards.userid
-        	WHERE users.userid = #{userid}
+            pet_boards
+        	WHERE pet_boards.userid = #{userid}
         ]]>
 	</select>
 	

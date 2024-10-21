@@ -4,10 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import edu.ict.ex.PetMapper.PBoardMapper;
 import edu.ict.ex.vo.PetBoardsCategoriesJoinVO;
 import edu.ict.ex.vo.PetBoardsVO;
-import edu.ict.ex.vo.PetVO;
 
 @Service
 public class PBoardService {
@@ -41,5 +42,13 @@ public class PBoardService {
 		return pBoardMapper.remove(bnum);
 		
 	}
+	
+	@Transactional(rollbackFor = Exception.class)
+	   public void boardReply(PetBoardsVO petBoardsVO) {
+	      //log.info("댓글");
+	      pBoardMapper.updateShape(petBoardsVO);
+	      pBoardMapper.insertReply(petBoardsVO);
+	      
+	   }
 
 }

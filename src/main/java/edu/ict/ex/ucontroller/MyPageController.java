@@ -28,6 +28,7 @@ public class MyPageController {
             String userid = principal.getName(); // 로그인된 사용자 ID
             model.addAttribute("user", userService.getUserById(userid));
             model.addAttribute("userBoard", userService.getUserBoardById(userid));
+            model.addAttribute("userHope", userService.getUserHopeById(userid));
         }
      
         return "user/mypage"; // 마이페이지 뷰 이름
